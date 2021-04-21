@@ -197,11 +197,11 @@ class Bp_Modify_Member_Directory_Public {
 
 								?>
 								<?php if ( 'socialnetworks' != $profile_field->type ) { ?>
-										<div><span class="member-field-name  members-<?php echo isset( $profile_field->name ) ? sanitize_title( $profile_field->name ) : ''; ?>"><?php echo $profile_field->name . ' : '; ?></span>
-											<span class="member-field-value members-value-<?php echo isset( $profile_field->name ) ? sanitize_title( $profile_field->name ) : ''; ?>">
-												<?php bp_member_profile_data( 'field=' . $profile_field->name ); ?>
-											</span>
-										</div>
+									<div><span class="member-field-name  members-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>"><?php echo esc_html( $profile_field->name ) . ' : '; ?></span>
+										<span class="member-field-value members-value-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>">
+											<?php bp_member_profile_data( 'field=' . $profile_field->name ); ?>
+										</span>
+									</div>
 									<?php
 								} else {
 									$providers              = bp_xprofile_social_network_provider();
@@ -272,9 +272,9 @@ class Bp_Modify_Member_Directory_Public {
 								$profile_data = bp_get_member_profile_data( 'field=' . $profile_field->name );
 								if ( ! empty( $profile_data ) ) {
 									?>
-										<div><span class= member-field-name members-<?php echo $profile_field->name; ?>><?php echo $profile_field->name . ' : '; ?></span>
-											<span class= member-field-name members-value-<?php echo $profile_field->name; ?>>
-											<?php bp_member_profile_data( 'field=' . $profile_field->name ); ?>
+										<div><span class="member-field-name  members-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>"><?php echo esc_html( $profile_field->name ) . ' : '; ?></span>
+											<span class="member-field-value members-value-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>">
+												<?php bp_member_profile_data( 'field=' . $profile_field->name ); ?>
 											</span>
 										</div>
 										<?php
