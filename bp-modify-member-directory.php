@@ -117,3 +117,17 @@ function bp_modify_member_plugin_actions( $links, $file ) {
 	array_unshift( $links, $settings_link ); // before other links.
 	return $links;
 }
+
+
+/**
+ * redirect to plugin settings page after activated
+ */
+
+add_action( 'activated_plugin', 'bp_modify_member_activation_redirect_settings' );
+function bp_modify_member_activation_redirect_settings( $plugin ){
+
+	if( $plugin == plugin_basename( __FILE__ ) ) {
+		wp_redirect( admin_url( 'admin.php?page=bp-modify-directory' ) ) ;
+		exit;
+	}
+}

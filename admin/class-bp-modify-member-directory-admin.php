@@ -142,7 +142,7 @@ class Bp_Modify_Member_Directory_Admin {
 	 * @param string $current The current tab.
 	 */
 	public function bp_modify_profile_directory_setting_page() {
-		$current = isset( $_GET['tab'] ) ? $_GET['tab'] : 'bpmmd_general_settings';
+		$current = isset( $_GET['tab'] ) ? $_GET['tab'] : 'bpmmd_welcome';
 		?>
 		<div class="wrap">
 		<div class="blpro-header">
@@ -154,6 +154,7 @@ class Bp_Modify_Member_Directory_Admin {
 		<div class="wbcom-admin-settings-page">
 		<?php
 		$bpmmd_tabs = array(
+			'bpmmd_welcome' 		 => __( 'Welcome', 'bp-modify-member-directory' ),
 			'bpmmd_general_settings' => __( 'General', 'bp-modify-member-directory' ),
 			'bpmmd_faq'              => __( 'FAQ', 'bp-modify-member-directory' ),
 		);
@@ -183,7 +184,7 @@ class Bp_Modify_Member_Directory_Admin {
 		if ( isset( $_GET['tab'] ) ) {
 			$bpxp_tab = $_GET['tab'];
 		} else {
-			$bpxp_tab = 'general';
+			$bpxp_tab = 'bpmmd_welcome';
 		}
 		$this->bpmmd_include_admin_setting_tabs( $bpxp_tab );
 	}
@@ -198,6 +199,9 @@ class Bp_Modify_Member_Directory_Admin {
 	public function bpmmd_include_admin_setting_tabs( $current ) {
 		$bpmmd = isset( $_GET['tab'] ) ? $_GET['tab'] : $current;
 		switch ( $bpmmd ) {
+			case 'bpmmd_welcome':
+				$this->bpmmd_welcome_section();
+				break;
 			case 'bpmmd_general_settings':
 				$this->bpmmd_general_settings_section();
 				break;
@@ -205,9 +209,13 @@ class Bp_Modify_Member_Directory_Admin {
 				$this->bpmmd_faq_section();
 				break;
 			default:
-				$this->bpmmd_general_settings_section();
+				$this->bpmmd_welcome_section();
 				break;
 		}
+	}
+	
+	public function bpmmd_welcome_section() {
+		include BPMMD_PLUGIN_PATH . 'admin/partials/bp-modify-member-directory-welcome-page.php';
 	}
 	/**
 	 * Include admin genral setting tab.
