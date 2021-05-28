@@ -556,16 +556,16 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 		public function wbcom_admin_additional_pages() {
 			add_submenu_page(
 				'wbcomplugins',
-				esc_html__( 'Components', 'bp-modify-member-directory' ),
-				esc_html__( 'Components', 'bp-modify-member-directory' ),
+				esc_html__( 'Our Plugins', 'bp-modify-member-directory' ),
+				esc_html__( 'Our Plugins', 'bp-modify-member-directory' ),
 				'manage_options',
 				'wbcom-plugins-page',
 				array( $this, 'wbcom_plugins_submenu_page_callback' )
 			);
 			add_submenu_page(
 				'wbcomplugins',
-				esc_html__( 'Themes', 'bp-modify-member-directory' ),
-				esc_html__( 'Themes', 'bp-modify-member-directory' ),
+				esc_html__( 'Our Themes', 'bp-modify-member-directory' ),
+				esc_html__( 'Our Themes', 'bp-modify-member-directory' ),
 				'manage_options',
 				'wbcom-themes-page',
 				array( $this, 'wbcom_themes_submenu_page_callback' )
@@ -654,13 +654,13 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 						<li class="wb_admin_nav_item <?php echo esc_attr( $plugin_active ); ?>">
 							<a href="<?php echo esc_url( get_admin_url() . 'admin.php?page=wbcom-plugins-page' ); ?>" id="wb_admin_nav_trigger_extensions">
 								<i class="fa fa-th" aria-hidden="true"></i>
-								<h4><?php esc_html_e( 'Components', 'bp-modify-member-directory' ); ?></h4>
+								<h4><?php esc_html_e( 'Our Plugins', 'bp-modify-member-directory' ); ?></h4>
 							</a>
 						</li>
 						<li class="wb_admin_nav_item <?php echo esc_attr( $theme_active ); ?>">
 							<a href="<?php echo esc_url( get_admin_url() . 'admin.php?page=wbcom-themes-page' ); ?>" id="wb_admin_nav_trigger_themes">
 								<i class="fa fa-magic" aria-hidden="true"></i>
-								<h4><?php esc_html_e( 'Themes', 'bp-modify-member-directory' ); ?></h4>
+								<h4><?php esc_html_e( 'Our Themes', 'bp-modify-member-directory' ); ?></h4>
 							</a>
 						</li>
 						<li class="wb_admin_nav_item <?php echo esc_attr( $support_active ); ?>">

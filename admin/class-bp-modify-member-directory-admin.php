@@ -145,6 +145,8 @@ class Bp_Modify_Member_Directory_Admin {
 		$current = isset( $_GET['tab'] ) ? $_GET['tab'] : 'bpmmd_welcome';
 		?>
 		<div class="wrap">
+                <hr class="wp-header-end">
+                <div class="wbcom-wrap">
 		<div class="blpro-header">
 			<?php echo do_shortcode( '[wbcom_admin_setting_header]' ); ?>
 			<h1 class="wbcom-plugin-heading">
@@ -159,16 +161,17 @@ class Bp_Modify_Member_Directory_Admin {
 			'bpmmd_faq'              => __( 'FAQ', 'bp-modify-member-directory' ),
 		);
 
-		$tab_html = '<div class="wbcom-tabs-section"><h2 class="nav-tab-wrapper">';
+		$tab_html = '<div class="wbcom-tabs-section"><div class="nav-tab-wrapper"><div class="wb-responsive-menu"><span>' . esc_html( 'Menu' ) . '</span><input class="wb-toggle-btn" type="checkbox" id="wb-toggle-btn"><label class="wb-toggle-icon" for="wb-toggle-btn"><span class="wb-icon-bars"></span></label></div><ul>';
 		foreach ( $bpmmd_tabs as $bpmmd_tab => $bpmmd_name ) {
 			$class     = ( $bpmmd_tab === $current ) ? 'nav-tab-active' : '';
-			$tab_html .= '<a class="nav-tab ' . $class . '" href="admin.php?page=bp-modify-directory&tab=' . $bpmmd_tab . '">' . $bpmmd_name . '</a>';
+			$tab_html .= '<li><a class="nav-tab ' . $class . '" href="admin.php?page=bp-modify-directory&tab=' . $bpmmd_tab . '">' . $bpmmd_name . '</a></li>';
 		}
-		$tab_html .= '</h2></div>';
-		echo wp_kses_post( $tab_html );
+		$tab_html .= '</div></ul></div>';
+		echo ( $tab_html ); // WPCS: XSS ok.
 		wp_cache_flush();
 		$this->bpmmd_plugin_option_pages();
 		echo '</div>'; /* closing of div class wbcom-admin-settings-page */
+		echo '</div>'; /* closing div class wbcom-wrap */
 		echo '</div>'; /* closing div class wrap */
 	}
 
