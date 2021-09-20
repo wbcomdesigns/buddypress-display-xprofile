@@ -141,7 +141,7 @@ class Bp_Modify_Member_Directory_Public {
 								?>
 									<div><span class="member-field-name members-<?php echo isset( $profile_field->name ) ? sanitize_title( $profile_field->name ) : ''; ?>"><?php echo $profile_field->name . ' : '; ?></span>
 										<span class="member-field-value members-value-<?php echo $profile_field->name; ?>">
-										<?php bp_member_profile_data( 'field=' . $profile_field->name ); ?>
+										<?php echo xprofile_get_field_data( $profile_field->name, $user_id ); ?>
 										</span>
 									</div>
 									<?php
@@ -199,7 +199,7 @@ class Bp_Modify_Member_Directory_Public {
 								<?php if ( 'socialnetworks' != $profile_field->type ) { ?>
 									<div><span class="member-field-name  members-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>"><?php echo esc_html( $profile_field->name ) . ' : '; ?></span>
 										<span class="member-field-value members-value-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>">
-											<?php bp_member_profile_data( 'field=' . $profile_field->name ); ?>
+											<?php echo xprofile_get_field_data( $profile_field->name, $user_id ); ?>
 										</span>
 									</div>
 									<?php
@@ -274,7 +274,7 @@ class Bp_Modify_Member_Directory_Public {
 									?>
 										<div><span class="member-field-name  members-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>"><?php echo esc_html( $profile_field->name ) . ' : '; ?></span>
 											<span class="member-field-value members-value-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>">
-												<?php bp_member_profile_data( 'field=' . $profile_field->name ); ?>
+												<?php echo xprofile_get_field_data( $profile_field->name, $user_id ); ?>
 											</span>
 										</div>
 										<?php
