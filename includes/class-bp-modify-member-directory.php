@@ -74,7 +74,6 @@ class Bp_Modify_Member_Directory {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-		$this->bpmh_initialize_updater();
 
 	}
 
@@ -128,11 +127,6 @@ class Bp_Modify_Member_Directory {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-bp-modify-member-directory-public.php';
-
-		/**
-		 * The file is responsible update checker
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'bpmh-update-checker/plugin-update-checker.php';
 
 		$this->loader = new Bp_Modify_Member_Directory_Loader();
 
@@ -190,20 +184,6 @@ class Bp_Modify_Member_Directory {
 		$this->loader->add_action( 'bp_before_member_header_meta', $plugin_public, 'member_header_modification_function' );
 		/* Disply member xprofile fields on member loop BuddyBoss */
 		$this->loader->add_action( 'bp_member_members_list_item', $plugin_public, 'buddyboss_member_loop_modification_function' );
-	}
-
-	/**
-	 * Initialize plugin updater
-	 *
-	 * @since    1.0.0
-	 */
-	public function bpmh_initialize_updater() {
-		$bpmh_export_impoer_updater = Puc_v4_Factory::buildUpdateChecker(
-			'https://demos.wbcomdesigns.com/exporter/free-plugins/bp-modify-member-directory-header.json',
-			BPMMD_PLUGIN_FILE,
-			'bp-modify-member-directory-header'
-		);
-
 	}
 
 	/**
