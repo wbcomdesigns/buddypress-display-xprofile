@@ -135,22 +135,22 @@ class Bp_Modify_Member_Directory_Public {
 
 					foreach ( $profile_group->fields as $profile_field ) {
 
-						if ( in_array( $profile_field->id, $mergerd_loop_array ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr ) ) {
+						if ( in_array( $profile_field->id, $mergerd_loop_array, true ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr, true ) ) {
 							$profile_data = bp_get_member_profile_data( 'field=' . $profile_field->name );
 							if ( ! empty( $profile_data ) ) {
 								?>
-									<div><span class="member-field-name members-<?php echo isset( $profile_field->name ) ? sanitize_title( $profile_field->name ) : ''; ?>"><?php echo $profile_field->name . ' : '; ?></span>
-										<span class="member-field-value members-value-<?php echo $profile_field->name; ?>">
+									<div><span class="member-field-name members-<?php echo isset( $profile_field->name ) ? esc_attr( $profile_field->name ) : ''; ?>"><?php echo esc_html( $profile_field->name ) . ' : '; ?></span>
+										<span class="member-field-value members-value-<?php echo esc_attr( $profile_field->name ); ?>">
 										<?php
 										$xprofile_data = xprofile_get_field_data( $profile_field->name, $user_id );
 
-										if( is_array( $xprofile_data ) ) {
+										if ( is_array( $xprofile_data ) ) {
 											echo implode( ', ', $xprofile_data );
 										} else {
 											echo $xprofile_data;
 										}
 
-										  ?>
+										?>
 										</span>
 									</div>
 									<?php
@@ -200,24 +200,24 @@ class Bp_Modify_Member_Directory_Public {
 
 				foreach ( $profile_groups as $profile_group ) {
 					foreach ( $profile_group->fields as $profile_field ) {
-						if ( in_array( $profile_field->id, $mergerd_loop_array ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr ) ) {
+						if ( in_array( $profile_field->id, $mergerd_loop_array, true ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr, true ) ) {
 							$profile_data = bp_get_member_profile_data( 'field=' . $profile_field->name );
 							if ( ! empty( $profile_data ) ) {
 
 								?>
-								<?php if ( 'socialnetworks' != $profile_field->type ) { ?>
-									<div><span class="member-field-name  members-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>"><?php echo esc_html( $profile_field->name ) . ' : '; ?></span>
-										<span class="member-field-value members-value-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>">
+								<?php if ( 'socialnetworks' !== $profile_field->type ) { ?>
+									<div><span class="member-field-name  members-<?php echo isset( $profile_field->name ) ? esc_attr( $profile_field->name ) : ''; ?>"><?php echo esc_html( $profile_field->name ) . ' : '; ?></span>
+										<span class="member-field-value members-value-<?php echo isset( $profile_field->name ) ? esc_attr( $profile_field->name ) : ''; ?>">
 											<?php
 											$xprofile_data = xprofile_get_field_data( $profile_field->name, $user_id );
 
-											if( is_array( $xprofile_data ) ) {
+											if ( is_array( $xprofile_data ) ) {
 												echo implode( ', ', $xprofile_data );
 											} else {
 												echo $xprofile_data;
 											}
 
-											  ?>
+											?>
 										</span>
 									</div>
 									<?php
@@ -252,9 +252,9 @@ class Bp_Modify_Member_Directory_Public {
 		<?php
 	}
 
-		/*
-		*   Showing xprofile fieds on memeber's header cover image
-		*/
+	/**
+	 *   Showing xprofile fieds on memeber's header cover image
+	 */
 	public function member_header_modification_function() {
 
 		$profile_groups       = BP_XProfile_Group::get( array( 'fetch_fields' => true ) );
@@ -286,20 +286,20 @@ class Bp_Modify_Member_Directory_Public {
 					}
 					foreach ( $profile_groups as $profile_group ) {
 						foreach ( $profile_group->fields as $profile_field ) {
-							if ( in_array( $profile_field->id, $mergerd_member_array ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr ) ) {
+							if ( in_array( $profile_field->id, $mergerd_member_array, true ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr, true ) ) {
 								$profile_data = bp_get_member_profile_data( 'field=' . $profile_field->name );
 								if ( ! empty( $profile_data ) ) {
 									?>
-										<div><span class="member-field-name  members-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>"><?php echo esc_html( $profile_field->name ) . ' : '; ?></span>
-											<span class="member-field-value members-value-<?php echo isset( $profile_field->name ) ? sanitize_title( esc_attr( $profile_field->name ) ) : ''; ?>">
+										<div><span class="member-field-name  members-<?php echo isset( $profile_field->name ) ? esc_attr( $profile_field->name ) : ''; ?>"><?php echo esc_html( $profile_field->name ) . ' : '; ?></span>
+											<span class="member-field-value members-value-<?php echo isset( $profile_field->name ) ? esc_attr( $profile_field->name ) : ''; ?>">
 												<?php
 													$xprofile_data = xprofile_get_field_data( $profile_field->name, $user_id );
 
-													if( is_array( $xprofile_data ) ) {
-														echo implode( ', ', $xprofile_data );
-													} else {
-														echo $xprofile_data;
-													}
+												if ( is_array( $xprofile_data ) ) {
+													echo implode( ', ', $xprofile_data );
+												} else {
+													echo $xprofile_data;
+												}
 												?>
 											</span>
 										</div>

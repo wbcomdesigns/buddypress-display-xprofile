@@ -45,6 +45,7 @@
 			<?php
 			/* translators: %s: http://wbcomdesigns.com/contact */
 			$text = sprintf(
+				/* translators: %s: */
 				__( 'Please visit <a href="%s"  rel="nofollow" target="_blank">Wbcom Designs</a> for any query related to plugin and BuddyPress..' ),
 				__( 'http://wbcomdesigns.com/contact' )
 			);

@@ -139,14 +139,13 @@ class Bp_Modify_Member_Directory_Admin {
 	 * Callback function for bp member xprofile export import settings page.
 	 *
 	 * @since 1.0.0
-	 * @param string $current The current tab.
 	 */
 	public function bp_modify_profile_directory_setting_page() {
 		$current = isset( $_GET['tab'] ) ? $_GET['tab'] : 'bpmmd_welcome';
 		?>
 		<div class="wrap">
-                <hr class="wp-header-end">
-                <div class="wbcom-wrap">
+				<hr class="wp-header-end">
+				<div class="wbcom-wrap">
 		<div class="blpro-header">
 			<?php echo do_shortcode( '[wbcom_admin_setting_header]' ); ?>
 			<h1 class="wbcom-plugin-heading">
@@ -156,7 +155,7 @@ class Bp_Modify_Member_Directory_Admin {
 		<div class="wbcom-admin-settings-page">
 		<?php
 		$bpmmd_tabs = array(
-			'bpmmd_welcome' 		 => __( 'Welcome', 'bp-modify-member-directory' ),
+			'bpmmd_welcome'          => __( 'Welcome', 'bp-modify-member-directory' ),
 			'bpmmd_general_settings' => __( 'General', 'bp-modify-member-directory' ),
 			'bpmmd_faq'              => __( 'FAQ', 'bp-modify-member-directory' ),
 		);
@@ -167,7 +166,7 @@ class Bp_Modify_Member_Directory_Admin {
 			$tab_html .= '<li><a class="nav-tab ' . $class . '" href="admin.php?page=bp-modify-directory&tab=' . $bpmmd_tab . '">' . $bpmmd_name . '</a></li>';
 		}
 		$tab_html .= '</div></ul></div>';
-		echo ( $tab_html ); // WPCS: XSS ok.
+		echo ( $tab_html ); // phpcs:ignore
 		wp_cache_flush();
 		$this->bpmmd_plugin_option_pages();
 		echo '</div>'; /* closing of div class wbcom-admin-settings-page */
@@ -185,7 +184,7 @@ class Bp_Modify_Member_Directory_Admin {
 	 */
 	public function bpmmd_plugin_option_pages() {
 		if ( isset( $_GET['tab'] ) ) {
-			$bpxp_tab = $_GET['tab'];
+			$bpxp_tab = wp_unslash( $_GET['tab'] );
 		} else {
 			$bpxp_tab = 'bpmmd_welcome';
 		}
@@ -198,9 +197,10 @@ class Bp_Modify_Member_Directory_Admin {
 	 * @since    1.0.0
 	 * @access   public
 	 * @author   Wbcom Designs
+	 * @param current $current current.
 	 */
 	public function bpmmd_include_admin_setting_tabs( $current ) {
-		$bpmmd = isset( $_GET['tab'] ) ? $_GET['tab'] : $current;
+		$bpmmd = isset( $_GET['tab'] ) ? wp_unslash( $_GET['tab'] ) : $current;
 		switch ( $bpmmd ) {
 			case 'bpmmd_welcome':
 				$this->bpmmd_welcome_section();
@@ -216,7 +216,10 @@ class Bp_Modify_Member_Directory_Admin {
 				break;
 		}
 	}
-	
+
+	/**
+	 * Bpmmd_welcome_section
+	 */
 	public function bpmmd_welcome_section() {
 		include BPMMD_PLUGIN_PATH . 'admin/partials/bp-modify-member-directory-welcome-page.php';
 	}

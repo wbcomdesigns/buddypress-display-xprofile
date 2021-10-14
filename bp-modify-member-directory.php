@@ -111,6 +111,9 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'bp_modify_mem
 
 /**
  * Adds the Settings link to the plugin activate/deactivate page.
+ *
+ * @param links $links links.
+ * @param file  $file file.
  */
 function bp_modify_member_plugin_actions( $links, $file ) {
 	$settings_link = '<a href="' . admin_url( 'admin.php?page=bp-modify-directory' ) . '">' . __( 'Settings', 'bp-modify-member-directory' ) . '</a>';
@@ -118,16 +121,17 @@ function bp_modify_member_plugin_actions( $links, $file ) {
 	return $links;
 }
 
+add_action( 'activated_plugin', 'bp_modify_member_activation_redirect_settings' );
 
 /**
- * redirect to plugin settings page after activated
+ * Redirect to plugin settings page after activated
+ *
+ * @param plugin $plugin plugin.
  */
+function bp_modify_member_activation_redirect_settings( $plugin ) {
 
-add_action( 'activated_plugin', 'bp_modify_member_activation_redirect_settings' );
-function bp_modify_member_activation_redirect_settings( $plugin ){
-
-	if( $plugin == plugin_basename( __FILE__ ) ) {
-		wp_redirect( admin_url( 'admin.php?page=bp-modify-directory' ) ) ;
+	if ( plugin_basename( __FILE__ ) === $plugin ) {
+		wp_redirect( admin_url( 'admin.php?page=bp-modify-directory' ) );
 		exit;
 	}
 }

@@ -89,7 +89,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 		<th scope="row"><label class="field-description" >
 			<?php
 			esc_html_e( 'Field Group : ', 'bp-modify-member-directory' );
-			echo $profile_group->name;
+			echo esc_html( $profile_group->name );
 			?>
 		</label></th>
 		<td>
@@ -98,8 +98,8 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 				<?php foreach ( $profile_group->fields as $field ) : ?>
 				<tr>
 				<td>
-					<input type="checkbox" name="<?php echo esc_attr( $profile_group->id ); ?>-loop[]" value="<?php echo esc_attr( $field->id ); ?>" <?php echo ( isset( $bpmpd_fields_get_db['0'] ) && in_array( $field->id, $mergerd_loop_array ) ) ? 'checked' : ''; ?>>
-					<?php echo $field->name; ?>
+					<input type="checkbox" name="<?php echo esc_attr( $profile_group->id ); ?>-loop[]" value="<?php echo esc_attr( $field->id ); ?>" <?php echo ( isset( $bpmpd_fields_get_db['0'] ) && in_array( $field->id, $mergerd_loop_array, true ) ) ? 'checked' : ''; ?>>
+					<?php echo esc_html( $field->name ); ?>
 				</td>
 				</tr>
 			<?php endforeach; ?>
@@ -127,7 +127,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 			<th scope="row"><label class="field-description" >
 			<?php
 			esc_html_e( 'Field Group : ', 'bp-modify-member-directory' );
-			echo $profile_group->name;
+			echo esc_html( $profile_group->name );
 			?>
 			</label></th>
 			<td>
@@ -136,7 +136,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 				<?php foreach ( $profile_group->fields as $field ) : ?>
 				<tr>
 				<td>
-					<input type="checkbox" name="<?php echo esc_attr( $profile_group->id ); ?>-single[]" value="<?php echo esc_attr( $field->id ); ?>" <?php echo ( isset( $bpmpd_fields_get_db['1'] ) && in_array( $field->id, $mergerd_single_array ) ) ? 'checked' : ''; ?>><?php echo esc_html( $field->name ); ?>
+					<input type="checkbox" name="<?php echo esc_attr( $profile_group->id ); ?>-single[]" value="<?php echo esc_attr( $field->id ); ?>" <?php echo ( isset( $bpmpd_fields_get_db['1'] ) && in_array( $field->id, $mergerd_single_array, true ) ) ? 'checked' : ''; ?>><?php echo esc_html( $field->name ); ?>
 				</td>
 				</tr>
 			<?php endforeach; ?>
@@ -151,7 +151,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 	</table>
 <?php endif; ?>
 	<div class="submit">
-	<input type="submit" name="bpmpd-fields-submit" value="<?php _e( 'Save Settings', 'bp-modify-member-directory' ); ?>" class="button-primary">
+	<input type="submit" name="bpmpd-fields-submit" value="<?php esc_html_e( 'Save Settings', 'bp-modify-member-directory' ); ?>" class="button-primary">
 </div>
 </form>
 </div>
