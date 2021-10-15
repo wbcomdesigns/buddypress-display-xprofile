@@ -1,22 +1,34 @@
-/**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
- */
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Global
+
+/*--------------------------------------------------------------
+
+/*--------------------------------------------------------------
+# Global
+--------------------------------------------------------------*/
 
 .bpmpd-fields-loop-inner,
 .bpmpd-fields-member-inner {
-    margin: 10px 0;
+    margin: 0;
+    padding: 15px;
     font-size: 14px;
 }
 
 .bpmpd-fields-loop span a,
 .bpmpd-fields-member span a {
     display: inline-block;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
 }
+
 ul.members-meta.action {
     text-align: center;
-    padding:5px !important;
+    padding: 5px !important;
 }
+
 .members-meta.action .bpmpd-fields-loop-inner div {
     display: block;
     padding: 2px 0;
