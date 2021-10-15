@@ -17,12 +17,28 @@
     text-align: center;
 }
 
+#item-header-content .bpmpd-fields-loop-inner,
+#item-header-content .bpmpd-fields-member-inner {
+    margin: 10px 0;
+    padding: 0;
+    text-align: left;
+}
+
+#item-header-content .bpmpd-fields-loop-inner > div,
+#item-header-content .bpmpd-fields-member-inner > div {
+    padding: 3px 0;
+}
+
 .bpmpd-fields-loop span a,
 .bpmpd-fields-member span a {
     display: inline-block;
     margin: 0 !important;
     padding: 0 !important;
     background: transparent !important;
+    border: 0 !important;
+    color: inherit !important;
+    font-weight: normal !important;
+    font-size: inherit !important;
 }
 
 ul.members-meta.action {
