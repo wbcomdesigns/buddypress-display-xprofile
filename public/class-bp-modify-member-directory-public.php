@@ -135,7 +135,7 @@ class Bp_Modify_Member_Directory_Public {
 
 					foreach ( $profile_group->fields as $profile_field ) {
 
-						if ( in_array( $profile_field->id, $mergerd_loop_array, true ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr, true ) ) {
+						if ( in_array( $profile_field->id, $mergerd_loop_array ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr ) ) {
 							$profile_data = bp_get_member_profile_data( 'field=' . $profile_field->name );
 							if ( ! empty( $profile_data ) ) {
 								?>
@@ -200,7 +200,7 @@ class Bp_Modify_Member_Directory_Public {
 
 				foreach ( $profile_groups as $profile_group ) {
 					foreach ( $profile_group->fields as $profile_field ) {
-						if ( in_array( $profile_field->id, $mergerd_loop_array, true ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr, true ) ) {
+						if ( in_array( $profile_field->id, $mergerd_loop_array ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr ) ) {
 							$profile_data = bp_get_member_profile_data( 'field=' . $profile_field->name );
 							if ( ! empty( $profile_data ) ) {
 
@@ -286,7 +286,7 @@ class Bp_Modify_Member_Directory_Public {
 					}
 					foreach ( $profile_groups as $profile_group ) {
 						foreach ( $profile_group->fields as $profile_field ) {
-							if ( in_array( $profile_field->id, $mergerd_member_array, true ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr, true ) ) {
+							if ( in_array( $profile_field->id, $mergerd_member_array ) && in_array( $profile_field->id, $xprofile_usr_fields_id_arr ) ) {
 								$profile_data = bp_get_member_profile_data( 'field=' . $profile_field->name );
 								if ( ! empty( $profile_data ) ) {
 									?>
