@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wbcom-tab-content">
 	<div class="wbcom-welcome-main-wrapper">
 		<div class="wbcom-welcome-head">
-			<h2 class="wbcom-welcome-title"><?php esc_html_e( 'BuddyPress Modify Member Directory/Header', 'bp-modify-member-directory' ); ?></h2>
+			<h2 class="wbcom-welcome-title"><?php esc_html_e( 'BP Display xProfile', 'bp-modify-member-directory' ); ?></h2>
 			<p class="wbcom-welcome-description"><?php esc_html_e( 'The plugin provides you with the ability to display important profile fields on the BuddyPress Member directory and on member profile header.', 'bp-modify-member-directory' ); ?></p>
 		</div><!-- .wbcom-welcome-head -->
 
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<div class="col">
 						<h3><span class="dashicons dashicons-book"></span><?php esc_html_e( 'Documentation', 'bp-modify-member-directory' ); ?></h3>
-						<p><?php esc_html_e( 'We have prepared an extensive guide on BuddyPress Modify Member Directory/Header to learn all aspects of the plugin. You will find most of your answers here.', 'bp-modify-member-directory' ); ?></p>
+						<p><?php esc_html_e( 'We have prepared an extensive guide on BP Display xProfile to learn all aspects of the plugin. You will find most of your answers here.', 'bp-modify-member-directory' ); ?></p>
 						<a href="<?php echo esc_url( 'https://wbcomdesigns.com/docs/buddypress-free-addons/buddypress-modify-member-header-directory/' ); ?>" class="button button-primary button-welcome-support" target="_blank"><?php esc_html_e( 'Read Documentation', 'bp-modify-member-directory' ); ?></a>
 					</div>
 

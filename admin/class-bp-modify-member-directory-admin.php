@@ -149,7 +149,7 @@ class Bp_Modify_Member_Directory_Admin {
 		<div class="blpro-header">
 			<?php echo do_shortcode( '[wbcom_admin_setting_header]' ); ?>
 			<h1 class="wbcom-plugin-heading">
-				<?php esc_html_e( 'BP Display xProfile Fields Settings', 'bp-modify-member-directory' ); ?>
+				<?php esc_html_e( 'BP Display xProfile Settings', 'bp-modify-member-directory' ); ?>
 			</h1>
 		</div>
 		<div class="wbcom-admin-settings-page">
