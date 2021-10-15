@@ -98,7 +98,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 				<?php foreach ( $profile_group->fields as $field ) : ?>
 				<tr>
 				<td>
-					<input type="checkbox" name="<?php echo esc_attr( $profile_group->id ); ?>-loop[]" value="<?php echo esc_attr( $field->id ); ?>" <?php echo ( isset( $bpmpd_fields_get_db['0'] ) && in_array( $field->id, $mergerd_loop_array, true ) ) ? 'checked' : ''; ?>>
+					<input type="checkbox" name="<?php echo esc_attr( $profile_group->id ); ?>-loop[]" value="<?php echo esc_attr( $field->id ); ?>" <?php echo ( isset( $bpmpd_fields_get_db['0'] ) && in_array( $field->id, $mergerd_loop_array ) ) ? 'checked' : ''; ?>>
 					<?php echo esc_html( $field->name ); ?>
 				</td>
 				</tr>
@@ -136,7 +136,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 				<?php foreach ( $profile_group->fields as $field ) : ?>
 				<tr>
 				<td>
-					<input type="checkbox" name="<?php echo esc_attr( $profile_group->id ); ?>-single[]" value="<?php echo esc_attr( $field->id ); ?>" <?php echo ( isset( $bpmpd_fields_get_db['1'] ) && in_array( $field->id, $mergerd_single_array, true ) ) ? 'checked' : ''; ?>><?php echo esc_html( $field->name ); ?>
+					<input type="checkbox" name="<?php echo esc_attr( $profile_group->id ); ?>-single[]" value="<?php echo esc_attr( $field->id ); ?>" <?php echo ( isset( $bpmpd_fields_get_db['1'] ) && in_array( $field->id, $mergerd_single_array ) ) ? 'checked' : ''; ?>><?php echo esc_html( $field->name ); ?>
 				</td>
 				</tr>
 			<?php endforeach; ?>
