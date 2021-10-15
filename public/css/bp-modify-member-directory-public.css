@@ -2,6 +2,7 @@
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Global
+# Youzify
 
 /*--------------------------------------------------------------
 
@@ -48,5 +49,13 @@ ul.members-meta.action {
 
 .members-meta.action .bpmpd-fields-loop-inner div {
     display: block;
-    padding: 2px 0;
+    padding: 3px 0;
+}
+
+/*--------------------------------------------------------------
+# Youzify
+--------------------------------------------------------------*/
+.youzify .youzify-user-actions .bpmpd-fields-loop-inner div {
+    display: block;
+    padding: 3px 0;
 }
