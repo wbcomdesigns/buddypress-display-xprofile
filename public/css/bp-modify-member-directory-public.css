@@ -32,7 +32,7 @@
 
 .bpmpd-fields-loop span a,
 .bpmpd-fields-member span a {
-    display: inline-block;
+    display: inline-block !important;
     margin: 0 !important;
     padding: 0 !important;
     background: transparent !important;
@@ -40,6 +40,8 @@
     color: inherit !important;
     font-weight: normal !important;
     font-size: inherit !important;
+    height: auto;
+    line-height: normal;
 }
 
 ul.members-meta.action {
