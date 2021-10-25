@@ -77,7 +77,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 <div class="wbcom-tab-content">
 <form method="post" action="" class="bpmmd-general-settings">
 	<?php wp_nonce_field( 'bpmpd_fields_nonce_action', 'bpmpd_fields_nonce_value' ); ?>
-	<h2 class="members-loop"><?php esc_html_e( 'Select fields from each group to show on member\'s loop page', 'bp-modify-member-directory' ); ?>
+	<h2 class="members-loop"><?php esc_html_e( 'Select fields from each group to show on member\'s loop page', 'bp-display-xprofile' ); ?>
 	</h2>
 	<table class="form-table" >
 	<?php
@@ -88,7 +88,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 		<tr>
 		<th scope="row"><label class="field-description" >
 			<?php
-			esc_html_e( 'Field Group : ', 'bp-modify-member-directory' );
+			esc_html_e( 'Field Group : ', 'bp-display-xprofile' );
 			echo esc_html( $profile_group->name );
 			?>
 		</label></th>
@@ -116,7 +116,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 	</table>
 	<br>
 	<br>
-	<h2><?php esc_html_e( 'Select fields from each group to show on single member\'s page', 'bp-modify-member-directory' ); ?>
+	<h2><?php esc_html_e( 'Select fields from each group to show on single member\'s page', 'bp-display-xprofile' ); ?>
 	</h2>
 	<table class="form-table" >
 		<?php
@@ -126,7 +126,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 		<tr>
 			<th scope="row"><label class="field-description" >
 			<?php
-			esc_html_e( 'Field Group : ', 'bp-modify-member-directory' );
+			esc_html_e( 'Field Group : ', 'bp-display-xprofile' );
 			echo esc_html( $profile_group->name );
 			?>
 			</label></th>
@@ -151,7 +151,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 	</table>
 <?php endif; ?>
 	<div class="submit">
-	<input type="submit" name="bpmpd-fields-submit" value="<?php esc_html_e( 'Save Settings', 'bp-modify-member-directory' ); ?>" class="button-primary">
+	<input type="submit" name="bpmpd-fields-submit" value="<?php esc_html_e( 'Save Settings', 'bp-display-xprofile' ); ?>" class="button-primary">
 </div>
 </form>
 </div>

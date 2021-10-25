@@ -18,7 +18,7 @@ If you need additional help you can contact us for [Custom Development](https://
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/bp-modify-member-directory` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/bp-display-xprofile` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the \'Plugins\' screen in WordPress
 3. Use the Settings -> BP Modify Members to see the BP Modify Member Directory/Header Setting Page screen to set xprofile fields from each available group to show on members page in loop and on single members header page
 

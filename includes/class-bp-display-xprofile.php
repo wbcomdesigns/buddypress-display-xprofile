@@ -67,7 +67,7 @@ class Bp_Modify_Member_Directory {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'bp-modify-member-directory';
+		$this->plugin_name = 'bp-display-xprofile';
 		$this->version     = '1.0.0';
 
 		$this->load_dependencies();
@@ -99,18 +99,18 @@ class Bp_Modify_Member_Directory {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-bp-modify-member-directory-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-bp-display-xprofile-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-bp-modify-member-directory-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-bp-display-xprofile-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-bp-modify-member-directory-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-bp-display-xprofile-admin.php';
 
 		/**
 		 * The class responsible for wbcom wrapper.
@@ -121,7 +121,7 @@ class Bp_Modify_Member_Directory {
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-bp-modify-member-directory-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-bp-display-xprofile-public.php';
 
 		$this->loader = new Bp_Modify_Member_Directory_Loader();
 

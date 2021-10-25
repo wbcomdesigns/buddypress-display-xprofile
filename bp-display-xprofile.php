@@ -13,14 +13,14 @@
  *
  * @wordpress-plugin
  * Plugin Name:       BuddyPress Display xProfile
- * Plugin URI:        https://wbcomdesigns.com/plugins/bp-modify-member-directory/
+ * Plugin URI:        https://wbcomdesigns.com/plugins/bp-display-xprofile/
  * Description:       It will add option for admin to select which xprofile field will be displayed inside member loop and on profile header
  * Version:           1.7.0
  * Author:            Wbcom Designs
  * Author URI:        http://www.wbcomdesigns.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       bp-modify-member-directory
+ * Text Domain:       bp-display-xprofile
  * Domain Path:       /languages
  */
 
@@ -30,7 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 if ( ! defined( 'BPMMD_TEXT_DOMAIN' ) ) {
-	define( 'BPMMD_TEXT_DOMAIN', 'bp-modify-member-directory' );
+	define( 'BPMMD_TEXT_DOMAIN', 'bp-display-xprofile' );
 }
 if ( ! defined( 'BPMMD_PLUGIN_VERSION' ) ) {
 	define( 'BPMMD_PLUGIN_VERSION', '1.7.0' );
@@ -49,7 +49,7 @@ if ( ! defined( 'BPMMD_PLUGIN_PATH' ) ) {
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-bp-modify-member-directory.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-bp-display-xprofile.php';
 
 /**
  * Begins execution of the plugin.
@@ -97,7 +97,7 @@ function bp_modify_member_directory_plugin_admin_notice() {
 
 	echo '<div class="error"><p>'
 	/* translators: BP Modify Member Directory/Header and BuddyPress */
-	. sprintf( esc_html__( '%1$s is ineffective as it requires %2$s to be installed and active.', 'bp-modify-member-directory' ), '<strong>' . esc_html( $bpmdh_plugin ) . '</strong>', '<strong>' . esc_html( $bp_plugin ) . '</strong>' )
+	. sprintf( esc_html__( '%1$s is ineffective as it requires %2$s to be installed and active.', 'bp-display-xprofile' ), '<strong>' . esc_html( $bpmdh_plugin ) . '</strong>', '<strong>' . esc_html( $bp_plugin ) . '</strong>' )
 	. '</p></div>';
 	if ( isset( $_GET['activate'] ) ) {
 		unset( $_GET['activate'] );
@@ -116,7 +116,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'bp_modify_mem
  * @param file  $file file.
  */
 function bp_modify_member_plugin_actions( $links, $file ) {
-	$settings_link = '<a href="' . admin_url( 'admin.php?page=bp-modify-directory' ) . '">' . __( 'Settings', 'bp-modify-member-directory' ) . '</a>';
+	$settings_link = '<a href="' . admin_url( 'admin.php?page=bp-modify-directory' ) . '">' . __( 'Settings', 'bp-display-xprofile' ) . '</a>';
 	array_unshift( $links, $settings_link ); // before other links.
 	return $links;
 }

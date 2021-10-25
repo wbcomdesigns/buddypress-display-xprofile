@@ -7,7 +7,7 @@
         $free_plugins = $wbcom_setting_obj->wbcom_all_free_plugins();
         $paid_plugins = $wbcom_setting_obj->wbcom_all_paid_plugins();
         ?>
-        <h4 class="wbcom-plugin-heading"><?php esc_html_e('Paid Addons', 'bp-modify-member-directory'); ?></h4>
+        <h4 class="wbcom-plugin-heading"><?php esc_html_e('Paid Addons', 'bp-display-xprofile'); ?></h4>
         <div class="reign-demos-wrapper reign-importer-section">
             <div class="reign-demos-inner-wrapper wbcom-plugins-inner-wrapper">
                 <?php foreach ($paid_plugins as $key => $plugin_details) {
@@ -25,7 +25,7 @@
                                 <div class="activation_button_wrap">
                                     <a href="<?php echo esc_url($plugin_details['download_url']); ?>" class="wb_btn wb_btn_default" target="_blank" >
                                         <i class="fa fa-eye"></i>
-                                        <?php esc_html_e('View', 'bp-modify-member-directory'); ?>
+                                        <?php esc_html_e('View', 'bp-display-xprofile'); ?>
                                     </a>
                                 </div>
                             </div>
@@ -34,21 +34,21 @@
                 <?php } ?>
             </div>
         </div>
-        <h4 class="wbcom-plugin-heading"><?php esc_html_e('Free Addons', 'bp-modify-member-directory'); ?></h4>
+        <h4 class="wbcom-plugin-heading"><?php esc_html_e('Free Addons', 'bp-display-xprofile'); ?></h4>
         <div class="reign-demos-wrapper reign-importer-section">
             <div class="reign-demos-inner-wrapper wbcom-plugins-inner-wrapper">
                 <?php
                 foreach ($free_plugins as $key => $plugin_details) {
                     if ('not_installed' == $plugin_details['status']) {
-                        $plugin_btn_text = esc_html__('Install', 'bp-modify-member-directory');
+                        $plugin_btn_text = esc_html__('Install', 'bp-display-xprofile');
                         $toggle_class = 'fa fa-toggle-off';
                         $plugin_action = 'install_plugin';
                     } else if ('installed' == $plugin_details['status']) {
-                        $plugin_btn_text = esc_html__('Activate', 'bp-modify-member-directory');
+                        $plugin_btn_text = esc_html__('Activate', 'bp-display-xprofile');
                         $toggle_class = 'fa fa-toggle-off';
                         $plugin_action = 'activate_plugin';
                     } else {
-                        $plugin_btn_text = esc_html__('Deactivate', 'bp-modify-member-directory');
+                        $plugin_btn_text = esc_html__('Deactivate', 'bp-display-xprofile');
                         $toggle_class = 'fa fa-toggle-on';
                         $plugin_action = 'deactivate_plugin';
                     }

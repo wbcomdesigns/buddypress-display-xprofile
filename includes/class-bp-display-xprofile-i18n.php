@@ -34,7 +34,7 @@ class Bp_Modify_Member_Directory_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'bp-modify-member-directory',
+			'bp-display-xprofile',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

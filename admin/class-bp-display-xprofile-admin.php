@@ -74,7 +74,7 @@ class Bp_Modify_Member_Directory_Admin {
 		wp_register_style( 'font_awesome_css', plugin_dir_url( __FILE__ ) . 'css/font-awesome.min.css', array(), $this->version, 'all' );
 		wp_enqueue_style( 'font_awesome_css' );
 		wp_enqueue_style( 'jquery-ui-css', plugin_dir_url( __FILE__ ) . 'css/jquery-ui.min.css', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/bp-modify-member-directory-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/bp-display-xprofile-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -101,7 +101,7 @@ class Bp_Modify_Member_Directory_Admin {
 			wp_enqueue_script( 'jquery-ui-accordion' );
 		}
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/bp-modify-member-directory-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/bp-display-xprofile-admin.js', array( 'jquery' ), $this->version, false );
 	}
 
 	/**
@@ -126,11 +126,11 @@ class Bp_Modify_Member_Directory_Admin {
 		 */
 
 		if ( empty( $GLOBALS['admin_page_hooks']['wbcomplugins'] ) ) {
-			add_menu_page( esc_html__( 'WB Plugins', 'bp-modify-member-directory' ), esc_html__( 'WB Plugins', 'bp-modify-member-directory' ), 'manage_options', 'wbcomplugins', array( $this, 'bp_modify_profile_directory_setting_page' ), 'dashicons-lightbulb', 59 );
-			add_submenu_page( 'wbcomplugins', esc_html__( 'General', 'bp-modify-member-directory' ), esc_html__( 'General', 'bp-modify-member-directory' ), 'manage_options', 'wbcomplugins' );
+			add_menu_page( esc_html__( 'WB Plugins', 'bp-display-xprofile' ), esc_html__( 'WB Plugins', 'bp-display-xprofile' ), 'manage_options', 'wbcomplugins', array( $this, 'bp_modify_profile_directory_setting_page' ), 'dashicons-lightbulb', 59 );
+			add_submenu_page( 'wbcomplugins', esc_html__( 'General', 'bp-display-xprofile' ), esc_html__( 'General', 'bp-display-xprofile' ), 'manage_options', 'wbcomplugins' );
 		}
 
-		add_submenu_page( 'wbcomplugins', esc_html__( 'BP Display xProfile', 'bp-modify-member-directory' ), esc_html__( 'BP Display xProfile', 'bp-modify-member-directory' ), 'manage_options', 'bp-modify-directory', array( $this, 'bp_modify_profile_directory_setting_page' ) );
+		add_submenu_page( 'wbcomplugins', esc_html__( 'BP Display xProfile', 'bp-display-xprofile' ), esc_html__( 'BP Display xProfile', 'bp-display-xprofile' ), 'manage_options', 'bp-modify-directory', array( $this, 'bp_modify_profile_directory_setting_page' ) );
 
 	}
 
@@ -149,15 +149,15 @@ class Bp_Modify_Member_Directory_Admin {
 		<div class="blpro-header">
 			<?php echo do_shortcode( '[wbcom_admin_setting_header]' ); ?>
 			<h1 class="wbcom-plugin-heading">
-				<?php esc_html_e( 'BP Display xProfile Settings', 'bp-modify-member-directory' ); ?>
+				<?php esc_html_e( 'BP Display xProfile Settings', 'bp-display-xprofile' ); ?>
 			</h1>
 		</div>
 		<div class="wbcom-admin-settings-page">
 		<?php
 		$bpmmd_tabs = array(
-			'bpmmd_welcome'          => __( 'Welcome', 'bp-modify-member-directory' ),
-			'bpmmd_general_settings' => __( 'General', 'bp-modify-member-directory' ),
-			'bpmmd_faq'              => __( 'FAQ', 'bp-modify-member-directory' ),
+			'bpmmd_welcome'          => __( 'Welcome', 'bp-display-xprofile' ),
+			'bpmmd_general_settings' => __( 'General', 'bp-display-xprofile' ),
+			'bpmmd_faq'              => __( 'FAQ', 'bp-display-xprofile' ),
 		);
 
 		$tab_html = '<div class="wbcom-tabs-section"><div class="nav-tab-wrapper"><div class="wb-responsive-menu"><span>' . esc_html( 'Menu' ) . '</span><input class="wb-toggle-btn" type="checkbox" id="wb-toggle-btn"><label class="wb-toggle-icon" for="wb-toggle-btn"><span class="wb-icon-bars"></span></label></div><ul>';
@@ -221,13 +221,13 @@ class Bp_Modify_Member_Directory_Admin {
 	 * Bpmmd_welcome_section
 	 */
 	public function bpmmd_welcome_section() {
-		include BPMMD_PLUGIN_PATH . 'admin/partials/bp-modify-member-directory-welcome-page.php';
+		include BPMMD_PLUGIN_PATH . 'admin/partials/bp-display-xprofile-welcome-page.php';
 	}
 	/**
 	 * Include admin genral setting tab.
 	 */
 	public function bpmmd_general_settings_section() {
-		include BPMMD_PLUGIN_PATH . 'admin/partials/bp-modify-member-directory-genral-display.php';
+		include BPMMD_PLUGIN_PATH . 'admin/partials/bp-display-xprofile-genral-display.php';
 
 	}
 
@@ -235,7 +235,7 @@ class Bp_Modify_Member_Directory_Admin {
 	 * Include admin faq section tab.
 	 */
 	public function bpmmd_faq_section() {
-		include BPMMD_PLUGIN_PATH . 'admin/partials/bp-modify-member-directory-faq-display.php';
+		include BPMMD_PLUGIN_PATH . 'admin/partials/bp-display-xprofile-faq-display.php';
 	}
 
 }

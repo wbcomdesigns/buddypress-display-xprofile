@@ -26,92 +26,92 @@ msgstr ""
 "Last-Translator: Varun Dubey\n"
 "Language-Team: Wbcom Designs\n"
 
-#: admin/class-bp-modify-member-directory-admin.php:129
+#: admin/class-bp-display-xprofile-admin.php:129
 msgid "WB Plugins"
 msgstr ""
 
-#: admin/class-bp-modify-member-directory-admin.php:130
-#: admin/class-bp-modify-member-directory-admin.php:157
+#: admin/class-bp-display-xprofile-admin.php:130
+#: admin/class-bp-display-xprofile-admin.php:157
 msgid "General"
 msgstr ""
 
-#: admin/class-bp-modify-member-directory-admin.php:133
+#: admin/class-bp-display-xprofile-admin.php:133
 msgid "BP Modify Member Directory/Header"
 msgstr ""
 
-#: admin/class-bp-modify-member-directory-admin.php:151
+#: admin/class-bp-display-xprofile-admin.php:151
 msgid "BP Modify Member Directory/Header Settings"
 msgstr ""
 
-#: admin/class-bp-modify-member-directory-admin.php:158
+#: admin/class-bp-display-xprofile-admin.php:158
 msgid "FAQ"
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-faq-display.php:18
+#: admin/partials/bp-display-xprofile-faq-display.php:18
 msgid "Is this plugin requires another plugin?"
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-faq-display.php:21
+#: admin/partials/bp-display-xprofile-faq-display.php:21
 msgid "Yes, this plugin requires BuddyPress plugin."
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-faq-display.php:24
+#: admin/partials/bp-display-xprofile-faq-display.php:24
 msgid "What does this plugin work?"
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-faq-display.php:27
+#: admin/partials/bp-display-xprofile-faq-display.php:27
 msgid ""
 "This plugin adds option for admin to select which xprofile field will be "
 "displayed inside members loop and on profile header."
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-faq-display.php:30
+#: admin/partials/bp-display-xprofile-faq-display.php:30
 msgid "How to display some xprofile field inside BuddyPress members loop?"
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-faq-display.php:33
+#: admin/partials/bp-display-xprofile-faq-display.php:33
 msgid ""
 "This plugin includes settings to display xprofile fields with field group "
 "name, here you can enable those fields which you want to display inside "
 "members loop."
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-faq-display.php:36
+#: admin/partials/bp-display-xprofile-faq-display.php:36
 msgid "How to display some xprofile field on BuddyPress single page profile header?"
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-faq-display.php:39
+#: admin/partials/bp-display-xprofile-faq-display.php:39
 msgid ""
 "This plugin includes settings to display xprofile fields with field group "
 "name, here you can enable those fields which you want to display on "
 "BuddyPress single page profile header."
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-faq-display.php:42
+#: admin/partials/bp-display-xprofile-faq-display.php:42
 msgid "Where do I ask for support?"
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-faq-display.php:45
+#: admin/partials/bp-display-xprofile-faq-display.php:45
 msgid ""
 "Please visit <a href=\"http://wbcomdesigns.com/contact\" rel=\"nofollow\" "
 "target=\"_blank\">Wbcom Designs</a> for any query related to plugin and "
 "BuddyPress."
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-genral-display.php:81
+#: admin/partials/bp-display-xprofile-genral-display.php:81
 msgid "Select fields from each group to show on member's loop page"
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-genral-display.php:92
-#: admin/partials/bp-modify-member-directory-genral-display.php:130
+#: admin/partials/bp-display-xprofile-genral-display.php:92
+#: admin/partials/bp-display-xprofile-genral-display.php:130
 msgid "Field Group : "
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-genral-display.php:120
+#: admin/partials/bp-display-xprofile-genral-display.php:120
 msgid "Select fields from each group to show on single member's page"
 msgstr ""
 
-#: admin/partials/bp-modify-member-directory-genral-display.php:155
+#: admin/partials/bp-display-xprofile-genral-display.php:155
 msgid "Save Settings"
 msgstr ""
 
@@ -668,7 +668,7 @@ msgstr ""
 msgid "Themes"
 msgstr ""
 
-#: admin/wbcom/wbcom-admin-settings.php:647 bp-modify-member-directory.php:115
+#: admin/wbcom/wbcom-admin-settings.php:647 bp-display-xprofile.php:115
 msgid "Settings"
 msgstr ""
 
@@ -678,7 +678,7 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: bp-modify-member-directory.php:99
+#: bp-display-xprofile.php:99
 msgid "%1$s is ineffective as it requires %2$s to be installed and active."
 msgstr ""
 
