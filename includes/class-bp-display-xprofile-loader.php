@@ -5,8 +5,8 @@
  * @link       http://www.wbcomdesigns.com/
  * @since      1.0.0
  *
- * @package    Bp_Modify_Member_Directory
- * @subpackage Bp_Modify_Member_Directory/includes
+ * @package    Bp_Display_Xprofile
+ * @subpackage Bp_Display_Xprofile/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Bp_Modify_Member_Directory
- * @subpackage Bp_Modify_Member_Directory/includes
+ * @package    Bp_Display_Xprofile
+ * @subpackage Bp_Display_Xprofile/includes
  * @author     Wbcom Designs <<admin@wbcomdesigns.com>>
  */
-class Bp_Modify_Member_Directory_Loader {
+class Bp_Display_Xprofile_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

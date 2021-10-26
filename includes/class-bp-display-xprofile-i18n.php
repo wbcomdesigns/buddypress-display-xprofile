@@ -8,8 +8,8 @@
  * @link       http://www.wbcomdesigns.com/
  * @since      1.0.0
  *
- * @package    Bp_Modify_Member_Directory
- * @subpackage Bp_Modify_Member_Directory/includes
+ * @package    Bp_Display_Xprofile
+ * @subpackage Bp_Display_Xprofile/includes
  */
 
 /**
@@ -19,11 +19,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Bp_Modify_Member_Directory
- * @subpackage Bp_Modify_Member_Directory/includes
+ * @package    Bp_Display_Xprofile
+ * @subpackage Bp_Display_Xprofile/includes
  * @author     Wbcom Designs <<admin@wbcomdesigns.com>>
  */
-class Bp_Modify_Member_Directory_i18n {
+class Bp_Display_Xprofile_I18n {
 
 
 	/**

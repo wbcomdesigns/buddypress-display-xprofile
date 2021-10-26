@@ -9,7 +9,7 @@
  *
  * @link              http://www.wbcomdesigns.com/
  * @since             1.0.1
- * @package           Bp_Modify_Member_Directory
+ * @package           Bp_Display_Xprofile
  *
  * @wordpress-plugin
  * Plugin Name:       BuddyPress Display xProfile
@@ -61,7 +61,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-bp-display-xprofile.php';
  * @since    1.0.0
  */
 function run_bp_modify_member_directory() {
-	$plugin = new Bp_Modify_Member_Directory();
+	$plugin = new Bp_Display_Xprofile();
 	$plugin->run();
 }
 

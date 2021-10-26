@@ -115,7 +115,7 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 			$installed  = $upgrader->install( $plugin_zip );
 			if ( $installed ) {
 				$response = array( 'status' => 'installed' );
-				echo wp_send_json_success( $response );
+				echo wp_send_json_success( $response );//phpcs:ignore
 			} else {
 				return false;
 			}
@@ -530,7 +530,7 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 					// if ( !wp_script_is( 'wbcom-selectize-js', 'enqueued' ) ) {
 					// wp_enqueue_script( 'wbcom-selectize-js', BPMMD_PLUGIN_URL . 'admin/js/selectize.min.js', array( 'jquery' ) );
 					// wp_enqueue_script( 'wbcom-selectize-js', BPMMD_PLUGIN_URL . 'admin/js/selectize.min.js', array( 'jquery' ) );
-					// }
+					// }.
 
 					if ( ! wp_script_is( 'wp-color-picker', 'enqueued' ) ) {
 						wp_enqueue_style( 'wp-color-picker' );

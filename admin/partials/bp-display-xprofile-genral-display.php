@@ -7,8 +7,8 @@
  * @link       http://www.wbcomdesigns.com/
  * @since      1.0.0
  *
- * @package    Bp_Modify_Member_Directory
- * @subpackage Bp_Modify_Member_Directory/admin/partials
+ * @package    Bp_Display_Xprofile
+ * @subpackage Bp_Display_Xprofile/admin/partials
  */
 
 $profile_groups = BP_XProfile_Group::get( array( 'fetch_fields' => true ) );
@@ -20,7 +20,7 @@ if ( isset( $_POST['bpmpd-fields-submit'] ) && check_admin_referer( 'bpmpd_field
 
 	if ( ! empty( $profile_groups ) ) {
 		foreach ( $profile_groups as $profile_group ) {
-			$bpmpd_fields_loops[ $profile_group->id ] = isset( $_POST[ $profile_group->id . '-loop' ] ) ? $_POST[ $profile_group->id . '-loop' ] : array();
+			$bpmpd_fields_loops[ $profile_group->id ] = isset( $_POST[ $profile_group->id . '-loop' ] ) ? wp_unslash( $_POST[ $profile_group->id . '-loop' ] ) : array();
 		}
 	}
 
@@ -36,7 +36,7 @@ if ( isset( $_POST['bpmpd-fields-submit'] ) && check_admin_referer( 'bpmpd_field
 
 	if ( ! empty( $profile_groups ) ) {
 		foreach ( $profile_groups as $profile_group ) {
-			$bpmpd_fields_single_members[ $profile_group->id ] = isset( $_POST[ $profile_group->id . '-single' ] ) ? $_POST[ $profile_group->id . '-single' ] : array();
+			$bpmpd_fields_single_members[ $profile_group->id ] = isset( $_POST[ $profile_group->id . '-single' ] ) ? wp_unslash( $_POST[ $profile_group->id . '-single' ] ) : array();
 		}
 	}
 

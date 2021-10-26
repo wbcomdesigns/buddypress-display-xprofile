@@ -5,8 +5,8 @@
  * @link       http://www.wbcomdesigns.com/
  * @since      1.0.0
  *
- * @package    Bp_Modify_Member_Directory
- * @subpackage Bp_Modify_Member_Directory/admin/partials
+ * @package    Bp_Display_Xprofile
+ * @subpackage Bp_Display_Xprofile/admin/partials
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

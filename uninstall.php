@@ -21,7 +21,7 @@
  * @link       http://www.wbcomdesigns.com/
  * @since      1.0.0
  *
- * @package    Bp_Modify_Member_Directory
+ * @package    Bp_Display_Xprofile
  */
 
 // If uninstall not called from WordPress, then exit.

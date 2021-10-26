@@ -8,8 +8,8 @@
  * @link       http://www.wbcomdesigns.com/
  * @since      1.0.0
  *
- * @package    Bp_Modify_Member_Directory
- * @subpackage Bp_Modify_Member_Directory/includes
+ * @package    Bp_Display_Xprofile
+ * @subpackage Bp_Display_Xprofile/includes
  */
 
 /**
@@ -22,11 +22,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Bp_Modify_Member_Directory
- * @subpackage Bp_Modify_Member_Directory/includes
+ * @package    Bp_Display_Xprofile
+ * @subpackage Bp_Display_Xprofile/includes
  * @author     Wbcom Designs <<admin@wbcomdesigns.com>>
  */
-class Bp_Modify_Member_Directory {
+class Bp_Display_Xprofile {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -34,7 +34,7 @@ class Bp_Modify_Member_Directory {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Bp_Modify_Member_Directory_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Bp_Display_Xprofile_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -82,10 +82,10 @@ class Bp_Modify_Member_Directory {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Bp_Modify_Member_Directory_Loader. Orchestrates the hooks of the plugin.
-	 * - Bp_Modify_Member_Directory_i18n. Defines internationalization functionality.
-	 * - Bp_Modify_Member_Directory_Admin. Defines all hooks for the admin area.
-	 * - Bp_Modify_Member_Directory_Public. Defines all hooks for the public side of the site.
+	 * - Bp_Display_Xprofile_Loader. Orchestrates the hooks of the plugin.
+	 * - Bp_Display_Xprofile_I18n. Defines internationalization functionality.
+	 * - Bp_Display_Xprofile_Admin. Defines all hooks for the admin area.
+	 * - Bp_Display_Xprofile_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -115,7 +115,7 @@ class Bp_Modify_Member_Directory {
 		/**
 		 * The class responsible for wbcom wrapper.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/wbcom/wbcom-admin-settings.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/wbcom/class-wbcom-admin-settings.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -128,14 +128,14 @@ class Bp_Modify_Member_Directory {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'bpmh-update-checker/plugin-update-checker.php';
 
-		$this->loader = new Bp_Modify_Member_Directory_Loader();
+		$this->loader = new Bp_Display_Xprofile_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Bp_Modify_Member_Directory_i18n class in order to set the domain and to register the hook
+	 * Uses the Bp_Display_Xprofile_I18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -143,7 +143,7 @@ class Bp_Modify_Member_Directory {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Bp_Modify_Member_Directory_i18n();
+		$plugin_i18n = new Bp_Display_Xprofile_I18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -158,7 +158,7 @@ class Bp_Modify_Member_Directory {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Bp_Modify_Member_Directory_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Bp_Display_Xprofile_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -174,7 +174,7 @@ class Bp_Modify_Member_Directory {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Bp_Modify_Member_Directory_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Bp_Display_Xprofile_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -210,7 +210,7 @@ class Bp_Modify_Member_Directory {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Bp_Modify_Member_Directory_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Bp_Display_Xprofile_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

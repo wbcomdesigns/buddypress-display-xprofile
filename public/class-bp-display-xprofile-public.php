@@ -5,8 +5,8 @@
  * @link       http://www.wbcomdesigns.com/
  * @since      1.0.0
  *
- * @package    Bp_Modify_Member_Directory
- * @subpackage Bp_Modify_Member_Directory/public
+ * @package    Bp_Display_Xprofile
+ * @subpackage Bp_Display_Xprofile/public
  */
 
 /**
@@ -15,11 +15,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Bp_Modify_Member_Directory
- * @subpackage Bp_Modify_Member_Directory/public
+ * @package    Bp_Display_Xprofile
+ * @subpackage Bp_Display_Xprofile/public
  * @author     Wbcom Designs <<admin@wbcomdesigns.com>>
  */
-class Bp_Modify_Member_Directory_Public {
+class Bp_Display_Xprofile_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -64,10 +64,10 @@ class Bp_Modify_Member_Directory_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Bp_Modify_Member_Directory_Loader as all of the hooks are defined
+		 * defined in Bp_Display_Xprofile_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Bp_Modify_Member_Directory_Loader will then create the relationship
+		 * The Bp_Display_Xprofile_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -87,10 +87,10 @@ class Bp_Modify_Member_Directory_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Bp_Modify_Member_Directory_Loader as all of the hooks are defined
+		 * defined in Bp_Display_Xprofile_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Bp_Modify_Member_Directory_Loader will then create the relationship
+		 * The Bp_Display_Xprofile_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -122,7 +122,7 @@ class Bp_Modify_Member_Directory_Public {
 					$user_id                    = bp_get_member_user_id();
 					$xprofile_data_tbl          = $wpdb->prefix . 'bp_xprofile_data';
 					$get_usr_fields_id_qry      = "SELECT field_id FROM $xprofile_data_tbl WHERE user_id=$user_id";
-					$xprofile_usr_fields_id     = $wpdb->get_results( $get_usr_fields_id_qry );
+					$xprofile_usr_fields_id     = $wpdb->get_results( $get_usr_fields_id_qry );// phpcs:ignore
 					$xprofile_usr_fields_id_arr = array();
 
 				if ( ! empty( $xprofile_usr_fields_id ) ) {
@@ -145,9 +145,9 @@ class Bp_Modify_Member_Directory_Public {
 										$xprofile_data = xprofile_get_field_data( $profile_field->name, $user_id );
 
 										if ( is_array( $xprofile_data ) ) {
-											echo implode( ', ', $xprofile_data );
+											echo implode( ', ', $xprofile_data );// phpcs:ignore
 										} else {
-											echo $xprofile_data;
+											echo $xprofile_data;// phpcs:ignore
 										}
 
 										?>
@@ -189,7 +189,7 @@ class Bp_Modify_Member_Directory_Public {
 				$user_id                    = bp_get_member_user_id();
 				$xprofile_data_tbl          = $wpdb->prefix . 'bp_xprofile_data';
 				$get_usr_fields_id_qry      = "SELECT field_id FROM $xprofile_data_tbl WHERE user_id=$user_id";
-				$xprofile_usr_fields_id     = $wpdb->get_results( $get_usr_fields_id_qry );
+				$xprofile_usr_fields_id     = $wpdb->get_results( $get_usr_fields_id_qry );// phpcs:ignore
 				$xprofile_usr_fields_id_arr = array();
 
 				if ( ! empty( $xprofile_usr_fields_id ) ) {
@@ -212,9 +212,9 @@ class Bp_Modify_Member_Directory_Public {
 											$xprofile_data = xprofile_get_field_data( $profile_field->name, $user_id );
 
 											if ( is_array( $xprofile_data ) ) {
-												echo implode( ', ', $xprofile_data );
+												echo implode( ', ', $xprofile_data );// phpcs:ignore
 											} else {
-												echo $xprofile_data;
+												echo $xprofile_data;// phpcs:ignore
 											}
 
 											?>
@@ -232,7 +232,7 @@ class Bp_Modify_Member_Directory_Public {
 												if ( '' !== $original_option_value ) {
 													$key = bp_social_network_search_key( $key, $providers );
 													?>
-													<span class="social <?php echo esc_attr( $providers[ $key ]->value ); ?> "><a target="_blank" data-balloon-pos="up" data-balloon="<?php echo esc_attr( $providers[ $key ]->name ); ?> " href="<?php echo esc_url( $original_option_value ); ?>"><?php echo $providers[ $key ]->svg; ?></a></span>
+													<span class="social <?php echo esc_attr( $providers[ $key ]->value ); ?> "><a target="_blank" data-balloon-pos="up" data-balloon="<?php echo esc_attr( $providers[ $key ]->name ); ?> " href="<?php echo esc_url( $original_option_value ); ?>"><?php echo $providers[ $key ]->svg;// phpcs:ignore ?></a></span>
 													<?php
 												}
 											}
@@ -277,7 +277,7 @@ class Bp_Modify_Member_Directory_Public {
 					$user_id                    = bp_displayed_user_id();
 					$xprofile_data_tbl          = $wpdb->prefix . 'bp_xprofile_data';
 					$get_usr_fields_id_qry      = "SELECT field_id FROM $xprofile_data_tbl WHERE user_id=$user_id";
-					$xprofile_usr_fields_id     = $wpdb->get_results( $get_usr_fields_id_qry );
+					$xprofile_usr_fields_id     = $wpdb->get_results( $get_usr_fields_id_qry );// phpcs:ignore
 					$xprofile_usr_fields_id_arr = array();
 					if ( ! empty( $xprofile_usr_fields_id ) ) {
 						foreach ( $xprofile_usr_fields_id as $key => $value ) {
@@ -296,9 +296,9 @@ class Bp_Modify_Member_Directory_Public {
 													$xprofile_data = xprofile_get_field_data( $profile_field->name, $user_id );
 
 												if ( is_array( $xprofile_data ) ) {
-													echo implode( ', ', $xprofile_data );
+													echo implode( ', ', $xprofile_data );// phpcs:ignore
 												} else {
-													echo $xprofile_data;
+													echo $xprofile_data;// phpcs:ignore
 												}
 												?>
 											</span>
