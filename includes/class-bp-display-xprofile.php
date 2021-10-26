@@ -123,6 +123,11 @@ class Bp_Modify_Member_Directory {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-bp-display-xprofile-public.php';
 
+		/**
+		 * The file is responsible update checker
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'bpmh-update-checker/plugin-update-checker.php';
+
 		$this->loader = new Bp_Modify_Member_Directory_Loader();
 
 	}
