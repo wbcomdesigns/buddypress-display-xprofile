@@ -20,7 +20,7 @@
  * @subpackage Bp_Modify_Member_Directory/includes
  * @author     Wbcom Designs <<admin@wbcomdesigns.com>>
  */
-class Bp_Modify_Member_Directory_Loader {
+class Bp_Display_Xprofile_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

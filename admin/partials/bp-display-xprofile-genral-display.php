@@ -20,7 +20,7 @@ if ( isset( $_POST['bpmpd-fields-submit'] ) && check_admin_referer( 'bpmpd_field
 
 	if ( ! empty( $profile_groups ) ) {
 		foreach ( $profile_groups as $profile_group ) {
-			$bpmpd_fields_loops[ $profile_group->id ] = isset( $_POST[ $profile_group->id . '-loop' ] ) ? $_POST[ $profile_group->id . '-loop' ] : array();
+			$bpmpd_fields_loops[ $profile_group->id ] = isset( $_POST[ $profile_group->id . '-loop' ] ) ? wp_unslash( $_POST[ $profile_group->id . '-loop' ] ) : array();
 		}
 	}
 
@@ -36,7 +36,7 @@ if ( isset( $_POST['bpmpd-fields-submit'] ) && check_admin_referer( 'bpmpd_field
 
 	if ( ! empty( $profile_groups ) ) {
 		foreach ( $profile_groups as $profile_group ) {
-			$bpmpd_fields_single_members[ $profile_group->id ] = isset( $_POST[ $profile_group->id . '-single' ] ) ? $_POST[ $profile_group->id . '-single' ] : array();
+			$bpmpd_fields_single_members[ $profile_group->id ] = isset( $_POST[ $profile_group->id . '-single' ] ) ? wp_unslash( $_POST[ $profile_group->id . '-single' ] ) : array();
 		}
 	}
 

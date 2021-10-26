@@ -23,7 +23,7 @@
  * @subpackage Bp_Modify_Member_Directory/includes
  * @author     Wbcom Designs <<admin@wbcomdesigns.com>>
  */
-class Bp_Modify_Member_Directory_i18n {
+class Bp_Display_Xprofile_I18n {
 
 
 	/**

@@ -61,7 +61,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-bp-display-xprofile.php';
  * @since    1.0.0
  */
 function run_bp_modify_member_directory() {
-	$plugin = new Bp_Modify_Member_Directory();
+	$plugin = new Bp_Display_Xprofile();
 	$plugin->run();
 }
 
@@ -96,7 +96,7 @@ function bp_modify_member_directory_plugin_admin_notice() {
 	$bp_plugin    = 'BuddyPress';
 
 	echo '<div class="error"><p>'
-	/* translators: BP Modify Member Directory/Header and BuddyPress */
+	/* translators: BP Display Xprofile and BuddyPress */
 	. sprintf( esc_html__( '%1$s is ineffective as it requires %2$s to be installed and active.', 'bp-display-xprofile' ), '<strong>' . esc_html( $bpmdh_plugin ) . '</strong>', '<strong>' . esc_html( $bp_plugin ) . '</strong>' )
 	. '</p></div>';
 	if ( isset( $_GET['activate'] ) ) {

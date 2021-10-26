@@ -19,7 +19,7 @@
  * @subpackage Bp_Modify_Member_Directory/admin
  * @author     Wbcom Designs <<admin@wbcomdesigns.com>>
  */
-class Bp_Modify_Member_Directory_Admin {
+class Bp_Display_Xprofile_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -64,10 +64,10 @@ class Bp_Modify_Member_Directory_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Bp_Modify_Member_Directory_Loader as all of the hooks are defined
+		 * defined in Bp_Display_Xprofile_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Bp_Modify_Member_Directory_Loader will then create the relationship
+		 * The Bp_Display_Xprofile_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -89,10 +89,10 @@ class Bp_Modify_Member_Directory_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Bp_Modify_Member_Directory_Loader as all of the hooks are defined
+		 * defined in Bp_Display_Xprofile_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Bp_Modify_Member_Directory_Loader will then create the relationship
+		 * The Bp_Display_Xprofile_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -141,7 +141,7 @@ class Bp_Modify_Member_Directory_Admin {
 	 * @since 1.0.0
 	 */
 	public function bp_modify_profile_directory_setting_page() {
-		$current = isset( $_GET['tab'] ) ? $_GET['tab'] : 'bpmmd_welcome';
+		$current = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : 'bpmmd_welcome';
 		?>
 		<div class="wrap">
 				<hr class="wp-header-end">
@@ -184,7 +184,7 @@ class Bp_Modify_Member_Directory_Admin {
 	 */
 	public function bpmmd_plugin_option_pages() {
 		if ( isset( $_GET['tab'] ) ) {
-			$bpxp_tab = wp_unslash( $_GET['tab'] );
+			$bpxp_tab = sanitize_text_field( wp_unslash( $_GET['tab'] ) );
 		} else {
 			$bpxp_tab = 'bpmmd_welcome';
 		}
@@ -200,7 +200,7 @@ class Bp_Modify_Member_Directory_Admin {
 	 * @param current $current current.
 	 */
 	public function bpmmd_include_admin_setting_tabs( $current ) {
-		$bpmmd = isset( $_GET['tab'] ) ? wp_unslash( $_GET['tab'] ) : $current;
+		$bpmmd = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : $current;
 		switch ( $bpmmd ) {
 			case 'bpmmd_welcome':
 				$this->bpmmd_welcome_section();
