@@ -1,7 +1,7 @@
 {
   "name": "bp-display-xprofile",
   "version": "1.4.0",
-  "url": "https://github.com/wbcomdesigns/bp-display-xprofile-header",
+  "url": "https://github.com/wbcomdesigns/bp-display-xprofile",
   "license": "GPL-2.0+",
   "description": "It will add option for admin to select which xprofile field will be displayed inside member loop and on profile header",
   "devDependencies": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wbcomdesigns/bp-display-xprofile-header"
+    "url": "https://github.com/wbcomdesigns/bp-display-xprofile"
   },
   "dependencies": {
     "load-grunt-tasks": "^3.5.2"
