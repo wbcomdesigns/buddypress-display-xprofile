@@ -51,7 +51,7 @@ if ( ! class_exists( 'Puc_v4p10_Plugin_Ui', false ) ) :
 		 */
 		public function addViewDetailsLink( $pluginMeta, $pluginFile, $pluginData = array() ) {
 			if ( $this->isMyPluginFile( $pluginFile ) && ! isset( $pluginData['slug'] ) ) {
-				$linkText = apply_filters( $this->updateChecker->getUniqueName( 'view_details_link' ), __( 'View details', 'bp-modify-member-directory' ) );
+				$linkText = apply_filters( $this->updateChecker->getUniqueName( 'view_details_link' ), __( 'View details', 'bp-display-xprofile' ) );
 				if ( ! empty( $linkText ) ) {
 					$viewDetailsLinkPosition = 'append';
 
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Puc_v4p10_Plugin_Ui', false ) ) :
 								'&TB_iframe=true&width=600&height=550'
 							)
 						),
-						esc_attr( sprintf( __( 'More information about %s', 'bp-modify-member-directory' ), $pluginData['Name'] ) ),
+						esc_attr( sprintf( __( 'More information about %s', 'bp-display-xprofile' ), $pluginData['Name'] ) ),
 						esc_attr( $pluginData['Name'] ),
 						$linkText
 					);
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Puc_v4p10_Plugin_Ui', false ) ) :
 
 				$linkText = apply_filters(
 					$this->updateChecker->getUniqueName( 'manual_check_link' ),
-					__( 'Check for updates', 'bp-modify-member-directory' )
+					__( 'Check for updates', 'bp-display-xprofile' )
 				);
 				if ( ! empty( $linkText ) ) {
 					/** @noinspection HtmlUnknownTarget */
@@ -217,17 +217,17 @@ if ( ! class_exists( 'Puc_v4p10_Plugin_Ui', false ) ) :
 				$details     = '';
 
 				if ( $status == 'no_update' ) {
-					$message = sprintf( _x( 'The %s plugin is up to date.', 'the plugin title', 'bp-modify-member-directory' ), $title );
+					$message = sprintf( _x( 'The %s plugin is up to date.', 'the plugin title', 'bp-display-xprofile' ), $title );
 				} elseif ( $status == 'update_available' ) {
-					$message = sprintf( _x( 'A new version of the %s plugin is available.', 'the plugin title', 'bp-modify-member-directory' ), $title );
+					$message = sprintf( _x( 'A new version of the %s plugin is available.', 'the plugin title', 'bp-display-xprofile' ), $title );
 				} elseif ( $status === 'error' ) {
-					$message     = sprintf( _x( 'Could not determine if updates are available for %s.', 'the plugin title', 'bp-modify-member-directory' ), $title );
+					$message     = sprintf( _x( 'Could not determine if updates are available for %s.', 'the plugin title', 'bp-display-xprofile' ), $title );
 					$noticeClass = 'error notice-error';
 
 					$details = $this->formatManualCheckErrors( get_site_transient( $this->manualCheckErrorTransient ) );
 					delete_site_transient( $this->manualCheckErrorTransient );
 				} else {
-					$message     = sprintf( __( 'Unknown update checker status "%s"', 'bp-modify-member-directory' ), htmlentities( $status ) );
+					$message     = sprintf( __( 'Unknown update checker status "%s"', 'bp-display-xprofile' ), htmlentities( $status ) );
 					$noticeClass = 'error notice-error';
 				}
 				printf(
