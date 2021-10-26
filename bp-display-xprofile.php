@@ -92,7 +92,7 @@ function bp_modify_member_directory_init() {
  * Function to show admin notice when BuddyPress is deactivate.
  */
 function bp_modify_member_directory_plugin_admin_notice() {
-	$bpmdh_plugin = 'BP Modify Member Directory/Header';
+	$bpmdh_plugin = 'BuddyPress Display xProfile';
 	$bp_plugin    = 'BuddyPress';
 
 	echo '<div class="error"><p>'
@@ -130,7 +130,7 @@ add_action( 'activated_plugin', 'bp_modify_member_activation_redirect_settings' 
  */
 function bp_modify_member_activation_redirect_settings( $plugin ) {
 
-	if ( plugin_basename( __FILE__ ) === $plugin ) {
+	if ( class_exists( 'BuddyPress' ) && plugin_basename( __FILE__ ) === $plugin ) {
 		wp_redirect( admin_url( 'admin.php?page=bp-modify-directory' ) );
 		exit;
 	}
