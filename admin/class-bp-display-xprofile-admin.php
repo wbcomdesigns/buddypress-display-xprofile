@@ -165,7 +165,7 @@ class Bp_Display_Xprofile_Admin {
 			$tab_html .= '<li><a class="nav-tab ' . $class . '" href="admin.php?page=bp-modify-directory&tab=' . $bpmmd_tab . '">' . $bpmmd_name . '</a></li>';
 		}
 		$tab_html .= '</div></ul></div>';
-		echo ( $tab_html ); // phpcs:ignore
+		echo wp_kses_post( $tab_html );
 		wp_cache_flush();
 		$this->bpmmd_plugin_option_pages();
 		echo '</div>'; /* closing of div class wbcom-admin-settings-page */

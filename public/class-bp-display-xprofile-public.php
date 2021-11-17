@@ -122,7 +122,7 @@ class Bp_Display_Xprofile_Public {
 					$user_id                    = bp_get_member_user_id();
 					$xprofile_data_tbl          = $wpdb->prefix . 'bp_xprofile_data';
 					$get_usr_fields_id_qry      = "SELECT field_id FROM $xprofile_data_tbl WHERE user_id=$user_id";
-					$xprofile_usr_fields_id     = $wpdb->get_results( $get_usr_fields_id_qry );// phpcs:ignore
+					$xprofile_usr_fields_id     = $wpdb->get_results( $wpdb->prepare( 'SELECT field_id FROM ' . $wpdb->prefix . 'bp_xprofile_data WHERE user_id=%s', $user_id ) );
 					$xprofile_usr_fields_id_arr = array();
 
 				if ( ! empty( $xprofile_usr_fields_id ) ) {
@@ -139,21 +139,21 @@ class Bp_Display_Xprofile_Public {
 							$profile_data = bp_get_member_profile_data( 'field=' . $profile_field->name );
 							if ( ! empty( $profile_data ) ) {
 								?>
-									<div><span class="member-field-name members-<?php echo isset( $profile_field->name ) ? esc_attr( $profile_field->name ) : ''; ?>"><?php echo esc_html( $profile_field->name ) . ' : '; ?></span>
-										<span class="member-field-value members-value-<?php echo esc_attr( $profile_field->name ); ?>">
-										<?php
-										$xprofile_data = xprofile_get_field_data( $profile_field->name, $user_id );
-
-										if ( is_array( $xprofile_data ) ) {
-											echo implode( ', ', $xprofile_data );// phpcs:ignore
-										} else {
-											echo $xprofile_data;// phpcs:ignore
-										}
-
-										?>
-										</span>
-									</div>
+								<div><span class="member-field-name members-<?php echo isset( $profile_field->name ) ? esc_attr( $profile_field->name ) : ''; ?>"><?php echo esc_html( $profile_field->name ) . ' : '; ?></span>
+									<span class="member-field-value members-value-<?php echo esc_attr( $profile_field->name ); ?>">
 									<?php
+									$xprofile_data = xprofile_get_field_data( $profile_field->name, $user_id );
+
+									if ( is_array( $xprofile_data ) ) {
+										echo wp_kses_post( implode( ', ', $xprofile_data ) );
+									} else {
+										echo wp_kses_post( $xprofile_data );
+									}
+
+									?>
+									</span>
+								</div>
+								<?php
 							}
 						}
 					}
@@ -188,8 +188,7 @@ class Bp_Display_Xprofile_Public {
 				global $wpdb;
 				$user_id                    = bp_get_member_user_id();
 				$xprofile_data_tbl          = $wpdb->prefix . 'bp_xprofile_data';
-				$get_usr_fields_id_qry      = "SELECT field_id FROM $xprofile_data_tbl WHERE user_id=$user_id";
-				$xprofile_usr_fields_id     = $wpdb->get_results( $get_usr_fields_id_qry );// phpcs:ignore
+				$xprofile_usr_fields_id     = $wpdb->get_results( $wpdb->prepare( 'SELECT field_id FROM ' . $wpdb->prefix . 'bp_xprofile_data WHERE user_id=%s', $user_id ) );
 				$xprofile_usr_fields_id_arr = array();
 
 				if ( ! empty( $xprofile_usr_fields_id ) ) {
@@ -212,9 +211,9 @@ class Bp_Display_Xprofile_Public {
 											$xprofile_data = xprofile_get_field_data( $profile_field->name, $user_id );
 
 											if ( is_array( $xprofile_data ) ) {
-												echo implode( ', ', $xprofile_data );// phpcs:ignore
+												echo wp_kses_post( implode( ', ', $xprofile_data ) );
 											} else {
-												echo $xprofile_data;// phpcs:ignore
+												echo wp_kses_post( $xprofile_data );
 											}
 
 											?>
@@ -232,7 +231,7 @@ class Bp_Display_Xprofile_Public {
 												if ( '' !== $original_option_value ) {
 													$key = bp_social_network_search_key( $key, $providers );
 													?>
-													<span class="social <?php echo esc_attr( $providers[ $key ]->value ); ?> "><a target="_blank" data-balloon-pos="up" data-balloon="<?php echo esc_attr( $providers[ $key ]->name ); ?> " href="<?php echo esc_url( $original_option_value ); ?>"><?php echo $providers[ $key ]->svg;// phpcs:ignore ?></a></span>
+													<span class="social <?php echo esc_attr( $providers[ $key ]->value ); ?> "><a target="_blank" data-balloon-pos="up" data-balloon="<?php echo esc_attr( $providers[ $key ]->name ); ?> " href="<?php echo esc_url( $original_option_value ); ?>"><?php echo wp_kses_post( $providers[ $key ]->svg ); ?></a></span>
 													<?php
 												}
 											}
@@ -276,8 +275,7 @@ class Bp_Display_Xprofile_Public {
 					global $wpdb;
 					$user_id                    = bp_displayed_user_id();
 					$xprofile_data_tbl          = $wpdb->prefix . 'bp_xprofile_data';
-					$get_usr_fields_id_qry      = "SELECT field_id FROM $xprofile_data_tbl WHERE user_id=$user_id";
-					$xprofile_usr_fields_id     = $wpdb->get_results( $get_usr_fields_id_qry );// phpcs:ignore
+					$xprofile_usr_fields_id     = $wpdb->get_results( $wpdb->prepare( 'SELECT field_id FROM ' . $wpdb->prefix . 'bp_xprofile_data WHERE user_id=%s', $user_id ) );
 					$xprofile_usr_fields_id_arr = array();
 					if ( ! empty( $xprofile_usr_fields_id ) ) {
 						foreach ( $xprofile_usr_fields_id as $key => $value ) {
@@ -296,9 +294,9 @@ class Bp_Display_Xprofile_Public {
 													$xprofile_data = xprofile_get_field_data( $profile_field->name, $user_id );
 
 												if ( is_array( $xprofile_data ) ) {
-													echo implode( ', ', $xprofile_data );// phpcs:ignore
+													echo wp_kses_post( implode( ', ', $xprofile_data ) );
 												} else {
-													echo $xprofile_data;// phpcs:ignore
+													echo wp_kses_post( $xprofile_data );
 												}
 												?>
 											</span>
