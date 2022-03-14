@@ -29,53 +29,6 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 			add_shortcode( 'wbcom_admin_setting_header', array( $this, 'wbcom_admin_setting_header_html' ) );
 			add_action( 'admin_menu', array( $this, 'wbcom_admin_additional_pages' ), 999 );
 			add_action( 'admin_enqueue_scripts', array( $this, 'wbcom_enqueue_admin_scripts' ) );
-			add_action( 'wp_ajax_wbcom_manage_plugin_installation', array( $this, 'wbcom_do_plugin_action' ) );
-		}
-
-		/**
-		 * Ajax call to serve action related to plugin's install/activate/deactive.
-		 *
-		 * @since 1.0.0
-		 * @access public
-		 */
-		public function wbcom_do_plugin_action() {
-			if ( isset( $_POST['nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'wbcom_plugin_installer_params' ) ) {
-				$action = ! empty( $_POST['plugin_action'] ) ? sanitize_text_field( wp_unslash( $_POST['plugin_action'] ) ) : false;
-
-				$slug = ! empty( $_POST['plugin_slug'] ) ? sanitize_text_field( wp_unslash( $_POST['plugin_slug'] ) ) : false;
-			}
-			if ( 'install_plugin' === $action ) {
-				$this->wbcom_do_plugin_install( $slug );
-			} elseif ( 'activate_plugin' === $action ) {
-				$this->wbcom_do_plugin_activate( $slug );
-			} else {
-				$this->wbcom_do_plugin_deactivate( $slug );
-			}
-			die;
-		}
-
-		/**
-		 * Function for activate plugin.
-		 *
-		 * @since 1.1.0
-		 * @access public
-		 * @param string $slug Plugin's slug.
-		 */
-		public function wbcom_do_plugin_activate( $slug ) {
-			$plugin_file_path = $this->_get_plugin_file_path_from_slug( $slug );
-			$result           = activate_plugin( $plugin_file_path );
-		}
-
-		/**
-		 * Function for deactivate plugin.
-		 *
-		 * @since 1.1.0
-		 * @access public
-		 * @param string $slug Plugin's slug.
-		 */
-		public function wbcom_do_plugin_deactivate( $slug ) {
-			$plugin_file_path = $this->_get_plugin_file_path_from_slug( $slug );
-			$result           = deactivate_plugins( $plugin_file_path );
 		}
 
 		/**
@@ -97,29 +50,6 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 				}
 			}
 			return $slug;
-		}
-
-		/**
-		 * Function for install plugin.
-		 *
-		 * @since 1.1.0
-		 * @access public
-		 * @param string $slug Plugin's slug.
-		 */
-		public function wbcom_do_plugin_install( $slug ) {
-			include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
-			wp_cache_flush();
-
-			$upgrader   = new Plugin_Upgrader();
-			$plugin_zip = $this->get_download_url( $slug );
-			$installed  = $upgrader->install( $plugin_zip );
-			if ( $installed ) {
-				$response = array( 'status' => 'installed' );
-				return wp_send_json_success( $response );
-			} else {
-				return false;
-			}
-			exit;
 		}
 
 		/**
