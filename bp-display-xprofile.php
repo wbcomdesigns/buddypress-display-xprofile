@@ -77,10 +77,6 @@ function bp_modify_member_directory_init() {
 
 		deactivate_plugins( plugin_basename( __FILE__ ) );
 		add_action( 'admin_notices', 'bp_modify_member_directory_plugin_admin_notice' );
-
-		if ( isset( $_GET['activate'] ) ) {
-			unset( $_GET['activate'] );
-		}
 		return;
 	} else {
 		run_bp_modify_member_directory();
@@ -99,9 +95,6 @@ function bp_modify_member_directory_plugin_admin_notice() {
 	/* translators: BP Modify Member Directory/Header and BuddyPress */
 	. sprintf( esc_html__( '%1$s is ineffective as it requires %2$s to be installed and active.', 'bp-display-xprofile' ), '<strong>' . esc_html( $bpmdh_plugin ) . '</strong>', '<strong>' . esc_html( $bp_plugin ) . '</strong>' )
 	. '</p></div>';
-	if ( isset( $_GET['activate'] ) ) {
-		unset( $_GET['activate'] );
-	}
 }
 
 /**

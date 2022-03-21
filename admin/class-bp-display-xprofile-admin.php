@@ -140,7 +140,7 @@ class Bp_Display_Xprofile_Admin {
 	 * @since 1.0.0
 	 */
 	public function bp_modify_profile_directory_setting_page() {
-		$current = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : 'bpmmd_welcome';
+		$current = filter_input( INPUT_GET, 'tab' ) ? filter_input( INPUT_GET, 'tab' ) : 'bpmmd_welcome';
 		?>
 		<div class="wrap">
 				<hr class="wp-header-end">
@@ -182,12 +182,8 @@ class Bp_Display_Xprofile_Admin {
 	 * @author   Wbcom Designs
 	 */
 	public function bpmmd_plugin_option_pages() {
-		if ( isset( $_GET['tab'] ) ) {
-			$bpxp_tab = sanitize_text_field( wp_unslash( $_GET['tab'] ) );
-		} else {
-			$bpxp_tab = 'bpmmd_welcome';
-		}
-		$this->bpmmd_include_admin_setting_tabs( $bpxp_tab );
+			$bpxp_tab = filter_input( INPUT_GET, 'tab' ) ? filter_input( INPUT_GET, 'tab' ) : 'bpmmd_welcome';
+			$this->bpmmd_include_admin_setting_tabs( $bpxp_tab );
 	}
 
 	/**
@@ -199,7 +195,7 @@ class Bp_Display_Xprofile_Admin {
 	 * @param current $current current.
 	 */
 	public function bpmmd_include_admin_setting_tabs( $current ) {
-		$bpmmd = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : $current;
+		$bpmmd = filter_input( INPUT_GET, 'tab' ) ? filter_input( INPUT_GET, 'tab' ) : $current;
 		switch ( $bpmmd ) {
 			case 'bpmmd_welcome':
 				$this->bpmmd_welcome_section();
