@@ -173,6 +173,8 @@ class Bp_Display_Xprofile {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
+		$current_theme  = wp_get_theme();
+		$get_theme_name = $current_theme->get( 'Name' );
 
 		$plugin_public = new Bp_Display_Xprofile_Public( $this->get_plugin_name(), $this->get_version() );
 
@@ -181,9 +183,14 @@ class Bp_Display_Xprofile {
 
 		$this->loader->add_action( 'bp_directory_members_actions', $plugin_public, 'member_loop_modification_function', 999 );
 
-		$this->loader->add_action( 'bp_before_member_header_meta', $plugin_public, 'member_header_modification_function' );
+		if ( function_exists( 'buddypress' ) && buddypress()->buddyboss && 'BuddyBoss Theme' === $get_theme_name ) {
+			$this->loader->add_action( 'bp_before_member_in_header_meta', $plugin_public, 'member_header_modification_function' );
+		} else {
+			$this->loader->add_action( 'bp_before_member_header_meta', $plugin_public, 'member_header_modification_function' );
+		}
 		/* Disply member xprofile fields on member loop BuddyBoss */
 		$this->loader->add_action( 'bp_member_members_list_item', $plugin_public, 'buddyboss_member_loop_modification_function' );
+		$this->loader->add_action( 'bp_before_member_in_header_meta', $plugin_public, 'member_header_modification_function' );
 	}
 
 	/**
