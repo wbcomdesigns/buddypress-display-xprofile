@@ -75,6 +75,11 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 }
 ?>
 <div class="wbcom-tab-content">
+<div class="wbcom-welcome-main-wrapper">
+<div class="wbcom-welcome-head">	
+<h2 class="wbcom-welcome-title"><?php esc_html_e( 'BP Display xProfile General Settings', 'bp-display-xprofile' ); ?></h2>
+</div>
+<div class="wbcom-wrapper-section">
 <form method="post" action="" class="bpmmd-general-settings">
 	<?php wp_nonce_field( 'bpmpd_fields_nonce_action', 'bpmpd_fields_nonce_value' ); ?>
 	<h2 class="members-loop"><?php esc_html_e( 'Select fields from each group to show on member\'s loop page', 'bp-display-xprofile' ); ?>
@@ -154,4 +159,5 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 	<input type="submit" name="bpmpd-fields-submit" value="<?php esc_html_e( 'Save Settings', 'bp-display-xprofile' ); ?>" class="button-primary">
 </div>
 </form>
+</div>
 </div>
