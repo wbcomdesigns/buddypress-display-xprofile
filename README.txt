@@ -3,8 +3,8 @@ Contributors: wbcomdesigns
 Tags: buddypress,member-directory, header, member loop
 Donate link: https://wbcomdesigns.com/donate/
 Requires at least: 4.7
-Tested up to: 5.8.0
-Stable tag: 1.7.0
+Tested up to: 5.9.3
+Stable tag: 1.8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,12 @@ screenshot-4.png
 
 
 == Changelog ==
+= 1.8.0 =
+* Fix: #23 Admin UI updated
+* Fix: (#29)Added Buddyboss support
+* Fix: phpcs fixes
+* Fix: Removed install plugin button from wrapper
+
 = 1.6.0 =
 * Fix: Display array value in comma separated
 
