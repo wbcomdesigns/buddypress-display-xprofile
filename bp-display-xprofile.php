@@ -15,7 +15,7 @@
  * Plugin Name:       BuddyPress Display xProfile
  * Plugin URI:        https://wbcomdesigns.com/plugins/bp-display-xprofile/
  * Description:       It will add option for admin to select which xprofile field will be displayed inside member loop and on profile header
- * Version:           1.7.0
+ * Version:           1.8.0
  * Author:            Wbcom Designs
  * Author URI:        http://www.wbcomdesigns.com/
  * License:           GPL-2.0+
@@ -33,7 +33,7 @@ if ( ! defined( 'BPMMD_TEXT_DOMAIN' ) ) {
 	define( 'BPMMD_TEXT_DOMAIN', 'bp-display-xprofile' );
 }
 if ( ! defined( 'BPMMD_PLUGIN_VERSION' ) ) {
-	define( 'BPMMD_PLUGIN_VERSION', '1.7.0' );
+	define( 'BPMMD_PLUGIN_VERSION', '1.8.0' );
 }
 if ( ! defined( 'BPMMD_PLUGIN_FILE' ) ) {
 	define( 'BPMMD_PLUGIN_FILE', __FILE__ );
