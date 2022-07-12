@@ -75,29 +75,28 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 }
 ?>
 <div class="wbcom-tab-content">
-<div class="wbcom-welcome-main-wrapper">
-<div class="wbcom-welcome-head">	
-<h2 class="wbcom-welcome-title"><?php esc_html_e( 'BP Display xProfile General Settings', 'bp-display-xprofile' ); ?></h2>
+<div class="wbcom-wrapper-admin">	
+<div class="wbcom-admin-title-section">
+	<h3><?php esc_html_e( 'General Settings', 'bp-display-xprofile' ); ?></h3>
 </div>
-<div class="wbcom-wrapper-section">
+<div class="wbcom-admin-option-wrap wbcom-admin-option-wrap-view">
 <form method="post" action="" class="bpmmd-general-settings">
 	<?php wp_nonce_field( 'bpmpd_fields_nonce_action', 'bpmpd_fields_nonce_value' ); ?>
-	<h2 class="members-loop"><?php esc_html_e( 'Select fields from each group to show on member\'s loop page', 'bp-display-xprofile' ); ?>
-	</h2>
-	<table class="form-table" >
+	<h3 class="members-loop"><?php esc_html_e( 'Select fields from each group to show on member\'s loop page', 'bp-display-xprofile' ); ?>
+	</h3>
+	<div class="wbcom-settings-section-wrap" >
 	<?php
 	if ( ! empty( $profile_groups ) ) :
 		$i = 1;
 		foreach ( $profile_groups as $profile_group ) :
 			?>
-		<tr>
-		<th scope="row"><label class="field-description" >
+		<div class="wbcom-settings-section-options-heading">
+			<label class="field-description" >
 			<?php
 			esc_html_e( 'Field Group : ', 'bp-display-xprofile' );
 			echo esc_html( $profile_group->name );
 			?>
-		</label></th>
-		<td>
+		</label></div>
 			<?php if ( ! empty( $profile_group->fields ) ) : ?>
 			<table class="bpmpd-fields">
 				<?php foreach ( $profile_group->fields as $field ) : ?>
@@ -115,27 +114,23 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 			endif;
 			$i++;
 			?>
-		</td>
-		</tr>
 		<?php endforeach; ?>
-	</table>
-	<br>
-	<br>
-	<h2><?php esc_html_e( 'Select fields from each group to show on single member\'s page', 'bp-display-xprofile' ); ?>
-	</h2>
-	<table class="form-table" >
+		</div>
+	<h3><?php esc_html_e( 'Select fields from each group to show on single member\'s page', 'bp-display-xprofile' ); ?>
+	</h3>
+	<div class="wbcom-settings-section-wrap" >
 		<?php
 		$j = 1;
 		foreach ( $profile_groups as $profile_group ) :
 			?>
-		<tr>
-			<th scope="row"><label class="field-description" >
-			<?php
-			esc_html_e( 'Field Group : ', 'bp-display-xprofile' );
-			echo esc_html( $profile_group->name );
-			?>
-			</label></th>
-			<td>
+			<div class="wbcom-settings-section-options-heading">
+				<label class="field-description" >
+					<?php
+					esc_html_e( 'Field Group : ', 'bp-display-xprofile' );
+					echo esc_html( $profile_group->name );
+					?>
+			</label>
+			</div>
 			<?php if ( ! empty( $profile_group->fields ) ) : ?>
 			<table class="bpmpd-fields">
 				<?php foreach ( $profile_group->fields as $field ) : ?>
@@ -150,14 +145,13 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 			endif;
 			$j++;
 			?>
-			</td>
-		</tr>
 		<?php endforeach; ?>
-	</table>
+		</div>
 <?php endif; ?>
 	<div class="submit">
-	<input type="submit" name="bpmpd-fields-submit" value="<?php esc_html_e( 'Save Settings', 'bp-display-xprofile' ); ?>" class="button-primary">
+	<input type="submit" name="bpmpd-fields-submit" value="<?php esc_html_e( 'Save Settings', 'bp-display-xprofile' ); ?>" class="button button-primary">
 </div>
 </form>
+</div>
 </div>
 </div>

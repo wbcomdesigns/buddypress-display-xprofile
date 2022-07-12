@@ -71,10 +71,7 @@ class Bp_Display_Xprofile_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		wp_register_style( 'font_awesome_css', plugin_dir_url( __FILE__ ) . 'css/font-awesome.min.css', array(), $this->version, 'all' );
-		wp_enqueue_style( 'font_awesome_css' );
 		wp_enqueue_style( 'jquery-ui-css', plugin_dir_url( __FILE__ ) . 'css/jquery-ui.min.css', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/bp-display-xprofile-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -143,14 +140,23 @@ class Bp_Display_Xprofile_Admin {
 		$current = filter_input( INPUT_GET, 'tab' ) ? filter_input( INPUT_GET, 'tab' ) : 'bpmmd_welcome';
 		?>
 		<div class="wrap">
-				<hr class="wp-header-end">
-				<div class="wbcom-wrap">
-		<div class="blpro-header">
-			<?php echo do_shortcode( '[wbcom_admin_setting_header]' ); ?>
-			<h1 class="wbcom-plugin-heading">
-				<?php esc_html_e( 'BP Display xProfile Settings', 'bp-display-xprofile' ); ?>
-			</h1>
-		</div>
+				<div class="wbcom-bb-plugins-offer-wrapper">
+				<div id="wb_admin_logo">
+					<a href="https://wbcomdesigns.com/downloads/buddypress-community-bundle/" target="_blank">
+						<img src="<?php echo esc_url( BPMMD_PLUGIN_URL ) . 'admin/wbcom/assets/imgs/wbcom-offer-notice.png'; ?>">
+					</a>
+				</div>
+			</div>
+		<div class="wbcom-wrap bp-member-blog-wrap">
+			<div class="blpro-header">
+					<div class="wbcom_admin_header-wrapper">
+						<div id="wb_admin_plugin_name">
+							<?php esc_html_e( 'BP Display xProfile', 'bp-display-xprofile' ); ?>
+							<span><?php printf( __( 'Version %s', 'bp-display-xprofile' ), BPMMD_PLUGIN_VERSION ); ?></span>
+						</div>
+						<?php echo do_shortcode( '[wbcom_admin_setting_header]' ); ?>
+					</div>
+				</div>
 		<div class="wbcom-admin-settings-page">
 		<?php
 		$bpmmd_tabs = array(
@@ -169,7 +175,7 @@ class Bp_Display_Xprofile_Admin {
 		wp_cache_flush();
 		$this->bpmmd_plugin_option_pages();
 		echo '</div>'; /* closing of div class wbcom-admin-settings-page */
-		echo '</div>'; /* closing div class wbcom-wrap */
+		echo '</div>'; /* closing div class wrap */
 		echo '</div>'; /* closing div class wrap */
 	}
 

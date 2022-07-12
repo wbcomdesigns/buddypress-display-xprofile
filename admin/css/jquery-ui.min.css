@@ -1204,3 +1204,104 @@ a.ui-button:active,
   -webkit-box-shadow: 0px 0px 5px #666666;
   box-shadow: 0px 0px 5px #666666;
 }
+
+/*========================================
+FAQ Section
+========================================*/
+#faq_bpmmd_accordion {
+  position: relative;
+  margin: 20px 0 0;
+  padding: 20px 30px;
+  box-shadow: none;
+  background: #F6F7FE;
+  font-size: 15px;
+  line-height: 2.1em;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.bpmmd-xprofile-admin-row .bpmmd-xprofile-admin-col-12 {
+  align-self: flex-start;
+  width: auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 13px 25px;
+  padding-right: 40px;
+  margin: 12px 0;
+  border: 1px solid rgba(200, 197, 218, 0.50);
+  box-shadow: 0 15px 36px rgba(32, 53, 85, 0.15);
+  transition: all 0.6s ease 0s;
+}
+
+.bpmmd-xprofile-admin-row .bpmmd-xprofile-admin-col-12:hover {
+  background-color: #2A32EF;
+  border-color: #2A32EF;
+}
+
+button.bpmmd-xprofile-accordion {
+  border: medium none;
+  color: #333;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  outline: medium none;
+  text-align: left;
+  padding: 0;
+  background-color: transparent;
+  transition: all 0.4s ease 0s;
+  width: 100%;
+}
+
+button.bpmmd-xprofile-accordion.active,
+button.bpmmd-xprofile-accordion:hover {
+  color: #2A32EF;
+}
+
+div.bpmmd-xprofile-panel {
+  margin: 0px;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  transition: max-height 0.2s ease-out;
+}
+
+div.bpmmd-xprofile-panel p {
+  font-size: 15px;
+  margin: 5px 0 0;
+}
+
+button.bpmmd-xprofile-accordion::after {
+  color: hsl(0, 0%, 47%);
+  content: "+";
+  float: right;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 18px;
+  margin-right: -20px;
+}
+
+button.bpmmd-xprofile-accordion:hover:after {
+  color: #2A32EF;
+}
+
+button.bpmmd-xprofile-accordion.active::after {
+  content: "−";
+  color: #2A32EF;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.bpmmd-xprofile-admin-row .bpmmd-xprofile-admin-col-12:hover p,
+.bpmmd-xprofile-admin-row .bpmmd-xprofile-admin-col-12:hover button.bpmmd-xprofile-accordion:after,
+.bpmmd-xprofile-admin-row .bpmmd-xprofile-admin-col-12:hover button.bpmmd-xprofile-accordion {
+  color: #fff;
+}
+
+.wb-ads-tab-3-title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.wb-ads-tab-content .form-table td {
+  padding: 0;
+}
