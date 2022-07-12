@@ -168,7 +168,7 @@ class Bp_Display_Xprofile_Admin {
 		$tab_html = '<div class="wbcom-tabs-section"><div class="nav-tab-wrapper"><div class="wb-responsive-menu"><span>' . esc_html( 'Menu' ) . '</span><input class="wb-toggle-btn" type="checkbox" id="wb-toggle-btn"><label class="wb-toggle-icon" for="wb-toggle-btn"><span class="wb-icon-bars"></span></label></div><ul>';
 		foreach ( $bpmmd_tabs as $bpmmd_tab => $bpmmd_name ) {
 			$class     = ( $bpmmd_tab === $current ) ? 'nav-tab-active' : '';
-			$tab_html .= '<li><a class="nav-tab ' . $class . '" href="admin.php?page=bp-modify-directory&tab=' . $bpmmd_tab . '">' . $bpmmd_name . '</a></li>';
+			$tab_html .= '<li class="' . esc_attr( $bpmmd_tab ) . '"><a class="nav-tab ' . $class . '" href="admin.php?page=bp-modify-directory&tab=' . $bpmmd_tab . '">' . $bpmmd_name . '</a></li>';
 		}
 		$tab_html .= '</div></ul></div>';
 		echo wp_kses_post( $tab_html );

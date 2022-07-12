@@ -1305,3 +1305,11 @@ button.bpmmd-xprofile-accordion.active::after {
 .wb-ads-tab-content .form-table td {
   padding: 0;
 }
+
+.nav-tab-wrapper ul .bpmmd_faq a:before {
+  content: "\f101" !important;
+}
+
+.nav-tab-wrapper ul .bpmmd_general_settings a:before {
+  content: "\f111" !important;
+}
