@@ -32,7 +32,7 @@
 
 jQuery(document).ready(function ($) {
   /*faq tab accordion*/
-  var wb_ads_elmt = document.getElementsByClassName("bpmmd-xprofile-accordion");
+  var wb_ads_elmt = document.getElementsByClassName("wbcom-faq-accordion");
   var k;
   var wb_ads_elmt_len = wb_ads_elmt.length;
   for (k = 0; k < wb_ads_elmt_len; k++) {
