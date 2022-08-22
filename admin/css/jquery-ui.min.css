@@ -1221,3 +1221,7 @@ a.ui-button:active,
 .nav-tab-wrapper ul .bpmmd_general_settings a:before {
   content: "\f111" !important;
 }
+.wbcom-wrap .notice.notice-error.is-dismissible.learndash-license-is-dismissible,
+.wbcom-wrap .notice.notice-error {
+    display: none !important;
+}
