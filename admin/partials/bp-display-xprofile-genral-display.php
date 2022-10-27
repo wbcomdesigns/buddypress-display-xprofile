@@ -127,7 +127,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 				<label class="field-description" >
 					<?php
 					esc_html_e( 'Field Group : ', 'bp-display-xprofile' );
-					echo esc_html( $profile_group->name );
+					echo esc_html_e( $profile_group->name );
 					?>
 			</label>
 			</div>
@@ -136,7 +136,7 @@ if ( ! empty( $bpmpd_fields_get_db ) ) {
 				<?php foreach ( $profile_group->fields as $field ) : ?>
 				<tr>
 				<td>
-					<input type="checkbox" name="<?php echo esc_attr( $profile_group->id ); ?>-single[]" value="<?php echo esc_attr( $field->id ); ?>" <?php echo ( isset( $bpmpd_fields_get_db['1'] ) && in_array( $field->id, $mergerd_single_array ) ) ? 'checked' : ''; ?>><?php echo esc_html( $field->name ); ?>
+					<input type="checkbox" name="<?php echo esc_attr( $profile_group->id ); ?>-single[]" value="<?php echo esc_attr( $field->id ); ?>" <?php echo ( isset( $bpmpd_fields_get_db['1'] ) && in_array( $field->id, $mergerd_single_array ) ) ? 'checked' : ''; ?>><?php echo esc_html_e( $field->name ); ?>
 				</td>
 				</tr>
 			<?php endforeach; ?>
