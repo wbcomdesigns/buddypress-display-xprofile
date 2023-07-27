@@ -191,7 +191,6 @@ class Bp_Display_Xprofile {
 		}
 		/* Disply member xprofile fields on member loop BuddyBoss */
 		$this->loader->add_action( 'bp_member_members_list_item', $plugin_public, 'buddyboss_member_loop_modification_function' );
-		$this->loader->add_action( 'bp_before_member_in_header_meta', $plugin_public, 'member_header_modification_function' );
 	}
 
 	/**
