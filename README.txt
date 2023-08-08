@@ -3,8 +3,8 @@ Contributors: wbcomdesigns
 Tags: buddypress,member-directory, header, member loop
 Donate link: https://wbcomdesigns.com/donate/
 Requires at least: 4.7
-Tested up to: 5.9.3
-Stable tag: 1.8.1
+Tested up to: 6.3.0
+Stable tag: 1.8.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,12 @@ screenshot-4.png
 
 
 == Changelog ==
+= 1.8.2 =
+* Fix: (#31) Data repeat issue.
+* Fix: Text domain issue.
+* Fix: Plugin redirect issue when multiple plugins activate at the same time.
+* Fix: Translation issue.
+
 = 1.8.1 =
 * Fix: Updated admin wrapper UI code
 
