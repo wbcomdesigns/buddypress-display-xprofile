@@ -10,7 +10,9 @@
 		<div class="wbcom_admin_header-wrapper">
 			<div id="wb_admin_plugin_name">
 				<?php esc_html_e( 'BP Display xProfile', 'bp-display-xprofile' ); ?>
-				<span><?php printf( __( 'Version %s', 'bp-display-xprofile' ), BPMMD_PLUGIN_VERSION ); ?></span>
+				<span><?php 
+				/* translators: %s: */
+				printf( esc_html__( 'Version %s', 'bp-display-xprofile' ), esc_attr( BPMMD_PLUGIN_VERSION ) ); ?></span>
 			</div>
 			<?php echo do_shortcode( '[wbcom_admin_setting_header]' ); ?>
 		</div>

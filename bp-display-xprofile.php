@@ -124,7 +124,7 @@ add_action( 'activated_plugin', 'bp_modify_member_activation_redirect_settings' 
 function bp_modify_member_activation_redirect_settings( $plugin ) {
 
 	if ( class_exists( 'BuddyPress' ) && plugin_basename( __FILE__ ) === $plugin ) {
-		if ( isset( $_REQUEST['action'] ) && $_REQUEST['action']  == 'activate' && isset( $_REQUEST['plugin'] ) && $_REQUEST['plugin'] == $plugin) {
+		if ( isset( $_REQUEST['action'] ) && $_REQUEST['action']  == 'activate' && isset( $_REQUEST['plugin'] ) && $_REQUEST['plugin'] == $plugin) { //phpcs:ignore
 			wp_redirect( admin_url( 'admin.php?page=bp-modify-directory' ) );
 			exit;
 		}
