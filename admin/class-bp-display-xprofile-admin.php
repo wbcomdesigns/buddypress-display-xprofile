@@ -133,20 +133,20 @@ class Bp_Display_Xprofile_Admin {
 
 
 	/**
-		 * Hide all notices from the setting page.
-		 *
-		 * @return void
-		 */
-		public function wbcom_hide_all_admin_notices_from_setting_page() {
-			$wbcom_pages_array  = array( 'wbcomplugins', 'wbcom-plugins-page', 'wbcom-support-page', 'bp-modify-directory' );
-			$wbcom_setting_page = filter_input( INPUT_GET, 'page' ) ? filter_input( INPUT_GET, 'page' ) : '';
+	 * Hide all notices from the setting page.
+	 *
+	 * @return void
+	 */
+	public function wbcom_hide_all_admin_notices_from_setting_page() {
+		$wbcom_pages_array  = array( 'wbcomplugins', 'wbcom-plugins-page', 'wbcom-support-page', 'bp-modify-directory' );
+		$wbcom_setting_page = filter_input( INPUT_GET, 'page' ) ? filter_input( INPUT_GET, 'page' ) : '';
 
-			if ( in_array( $wbcom_setting_page, $wbcom_pages_array, true ) ) {
-				remove_all_actions( 'admin_notices' );
-				remove_all_actions( 'all_admin_notices' );
-			}
-
+		if ( in_array( $wbcom_setting_page, $wbcom_pages_array, true ) ) {
+			remove_all_actions( 'admin_notices' );
+			remove_all_actions( 'all_admin_notices' );
 		}
+
+	}
 
 
 	/**
@@ -160,7 +160,7 @@ class Bp_Display_Xprofile_Admin {
 		<div class="wrap">
 				<div class="wbcom-bb-plugins-offer-wrapper">
 				<div id="wb_admin_logo">
-					<a href="https://wbcomdesigns.com/downloads/buddypress-community-bundle/" target="_blank">
+					<a href="https://wbcomdesigns.com/downloads/buddypress-community-bundle/?utm_source=pluginoffernotice&utm_medium=community_banner" target="_blank">
 						<img src="<?php echo esc_url( BPMMD_PLUGIN_URL ) . 'admin/wbcom/assets/imgs/wbcom-offer-notice.png'; ?>">
 					</a>
 				</div>
