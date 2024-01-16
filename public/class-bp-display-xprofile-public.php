@@ -231,7 +231,7 @@ class Bp_Display_Xprofile_Public {
 												if ( '' !== $original_option_value ) {
 													$key = bp_social_network_search_key( $key, $providers );
 													?>
-													<span class="social <?php echo esc_attr( $providers[ $key ]->value ); ?> "><a target="_blank" data-balloon-pos="up" data-balloon="<?php echo esc_attr( $providers[ $key ]->name ); ?> " href="<?php echo esc_url( $original_option_value ); ?>"><?php echo wp_kses_post( $providers[ $key ]->svg ); ?></a></span>
+													<span class="social <?php echo esc_attr( $providers[ $key ]->value ); ?> "><a target="_blank" data-balloon-pos="up" data-balloon="<?php echo esc_attr( $providers[ $key ]->name ); ?> " href="<?php echo esc_url( $original_option_value ); ?>"><?php echo $providers[ $key ]->svg; //phpcs:ignore ?></a></span>
 													<?php
 												}
 											}
