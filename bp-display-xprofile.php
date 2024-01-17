@@ -51,6 +51,9 @@ if ( ! defined( 'BPMMD_PLUGIN_PATH' ) ) {
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-bp-display-xprofile.php';
 
+require_once __DIR__ . '/vendor/autoload.php';
+HardG\BuddyPress120URLPolyfills\Loader::init();
+
 /**
  * Begins execution of the plugin.
  *

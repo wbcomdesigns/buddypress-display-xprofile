@@ -182,7 +182,9 @@ class Bp_Display_Xprofile {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-		$this->loader->add_action( 'bp_directory_members_actions', $plugin_public, 'member_loop_modification_function', 999 );
+		if ( function_exists( 'buddypress' ) && ! isset( buddypress()->buddyboss ) ) {
+			$this->loader->add_action( 'bp_directory_members_actions', $plugin_public, 'member_loop_modification_function', 999 );
+		}
 
 		if ( function_exists( 'buddypress' ) && buddypress()->buddyboss && 'BuddyBoss Theme' === $get_theme_name ) {
 			$this->loader->add_action( 'bp_before_member_in_header_meta', $plugin_public, 'member_header_modification_function' );
