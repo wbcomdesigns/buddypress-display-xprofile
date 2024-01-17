@@ -58,6 +58,10 @@ ul.members-meta.action {
     white-space: unset;
 }
 
+.directory.members .bp-members-list-hook a.more-action-button {
+    display: none;
+}
+
 
 /*--------------------------------------------------------------
 # Youzify
