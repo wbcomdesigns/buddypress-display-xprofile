@@ -25,8 +25,8 @@
     text-align: left;
 }
 
-#item-header-content .bpmpd-fields-loop-inner > div,
-#item-header-content .bpmpd-fields-member-inner > div {
+#item-header-content .bpmpd-fields-loop-inner>div,
+#item-header-content .bpmpd-fields-member-inner>div {
     padding: 3px 0;
 }
 
@@ -54,9 +54,15 @@ ul.members-meta.action {
     padding: 3px 0;
 }
 
+.bpmpd-fields-loop-inner .social-networks-wrap {
+    white-space: unset;
+}
+
+
 /*--------------------------------------------------------------
 # Youzify
 --------------------------------------------------------------*/
+
 .youzify .youzify-user-actions .bpmpd-fields-loop-inner div {
     display: block;
     padding: 3px 0;
