@@ -68,9 +68,8 @@ function run_bp_modify_member_directory() {
 	$plugin->run();
 }
 
-add_action( 'plugins_loaded', 'bp_modify_member_directory_init' );
 /**
- * Checking for buddypress whether it is active or not
+ * Checking for BuddyPress whether it is active or not
  *
  * @since    1.0.0
  */
@@ -84,11 +83,12 @@ function bp_modify_member_directory_init() {
 	} else {
 		run_bp_modify_member_directory();
 	}
-
 }
 
+add_action( 'plugins_loaded', 'bp_modify_member_directory_init' );
+
 /**
- * Function to show admin notice when BuddyPress is deactivate.
+ * Function to show admin notice when BuddyPress is deactivated.
  */
 function bp_modify_member_directory_plugin_admin_notice() {
 	$bpmdh_plugin = 'BuddyPress Display xProfile';
@@ -108,8 +108,8 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'bp_modify_mem
 /**
  * Adds the Settings link to the plugin activate/deactivate page.
  *
- * @param links $links links.
- * @param file  $file file.
+ * @param array $links links.
+ * @param string $file file.
  */
 function bp_modify_member_plugin_actions( $links, $file ) {
 	$settings_link = '<a href="' . admin_url( 'admin.php?page=bp-modify-directory' ) . '">' . __( 'Settings', 'bp-display-xprofile' ) . '</a>';
@@ -117,19 +117,18 @@ function bp_modify_member_plugin_actions( $links, $file ) {
 	return $links;
 }
 
-add_action( 'activated_plugin', 'bp_modify_member_activation_redirect_settings' );
-
 /**
- * Redirect to plugin settings page after activated
+ * Redirect to plugin settings page after activation.
  *
- * @param plugin $plugin plugin.
+ * @param string $plugin plugin.
  */
 function bp_modify_member_activation_redirect_settings( $plugin ) {
-
 	if ( class_exists( 'BuddyPress' ) && plugin_basename( __FILE__ ) === $plugin ) {
-		if ( isset( $_REQUEST['action'] ) && $_REQUEST['action']  == 'activate' && isset( $_REQUEST['plugin'] ) && $_REQUEST['plugin'] == $plugin) { //phpcs:ignore
+		if ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'activate' && isset( $_REQUEST['plugin'] ) && $_REQUEST['plugin'] == $plugin ) { // phpcs:ignore
 			wp_redirect( admin_url( 'admin.php?page=bp-modify-directory' ) );
 			exit;
 		}
 	}
 }
+
+add_action( 'activated_plugin', 'bp_modify_member_activation_redirect_settings' );
