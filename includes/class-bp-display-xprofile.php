@@ -66,7 +66,6 @@ class Bp_Display_Xprofile {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-
 		$this->plugin_name = 'bp-display-xprofile';
 		$this->version     = '1.0.0';
 
@@ -74,7 +73,6 @@ class Bp_Display_Xprofile {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -124,29 +122,25 @@ class Bp_Display_Xprofile {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-bp-display-xprofile-public.php';
 
 		/**
-		 * The file is responsible update checker
+		 * The file responsible for the update checker
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'bpmh-update-checker/plugin-update-checker.php';
 
 		$this->loader = new Bp_Display_Xprofile_Loader();
-
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Bp_Display_Xprofile_I18n class in order to set the domain and to register the hook
+	 * Uses the Bp_Display_Xprofile_I18n class to set the domain and register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
 	 * @access   private
 	 */
 	private function set_locale() {
-
 		$plugin_i18n = new Bp_Display_Xprofile_I18n();
-
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
 	}
 
 	/**
@@ -157,7 +151,6 @@ class Bp_Display_Xprofile {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
 		$plugin_admin = new Bp_Display_Xprofile_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
@@ -182,16 +175,19 @@ class Bp_Display_Xprofile {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
+		// BuddyPress checks
 		if ( function_exists( 'buddypress' ) && ! isset( buddypress()->buddyboss ) ) {
 			$this->loader->add_action( 'bp_directory_members_actions', $plugin_public, 'member_loop_modification_function', 999 );
 		}
 
-		if ( function_exists( 'buddypress' ) && buddypress()->buddyboss && 'BuddyBoss Theme' === $get_theme_name ) {
+		// BuddyBoss check for themes
+		if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) && 'BuddyBoss Theme' === $get_theme_name ) {
 			$this->loader->add_action( 'bp_before_member_in_header_meta', $plugin_public, 'member_header_modification_function' );
 		} else {
 			$this->loader->add_action( 'bp_before_member_header_meta', $plugin_public, 'member_header_modification_function' );
 		}
-		/* Disply member xprofile fields on member loop BuddyBoss */
+
+		// Display member xProfile fields in BuddyBoss member loop
 		$this->loader->add_action( 'bp_member_members_list_item', $plugin_public, 'buddyboss_member_loop_modification_function' );
 	}
 
@@ -234,5 +230,4 @@ class Bp_Display_Xprofile {
 	public function get_version() {
 		return $this->version;
 	}
-
 }
