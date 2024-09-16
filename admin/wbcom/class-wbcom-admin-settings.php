@@ -41,11 +41,10 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 			$wbcom_setting_nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 			$action              = isset( $_POST['action'] ) ? sanitize_text_field( wp_unslash( $_POST['action'] ) ) : '';
 			if ( ! empty( $wbcom_setting_nonce ) && wp_verify_nonce( $wbcom_setting_nonce, 'wbcom_admin_setting_nonce' ) && 'wbcom_addons_cards' === $action ) {
-				$display_extention = isset( $_POST['display_extension'] ) ? sanitize_text_field( wp_unslash( $_POST['display_extension'] ) ) : '';
-				echo esc_html( $display_extention );
+				$display_extension = isset( $_POST['display_extension'] ) ? sanitize_text_field( wp_unslash( $_POST['display_extension'] ) ) : '';
+				echo esc_html( $display_extension );
 				die;
 			}
-
 		}
 
 		/**
@@ -54,6 +53,7 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 		 * @since 2.0.0
 		 * @access public
 		 * @param string $plugin_slug Plugin's slug.
+		 * @return bool|WP_Error True if the upgrade was successful, WP_Error object otherwise.
 		 */
 		public function upgrade_plugin( $plugin_slug ) {
 			include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
@@ -66,11 +66,12 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Function for check plugin is installed or not.
+		 * Check if the plugin is installed.
 		 *
 		 * @since 2.0.0
 		 * @access public
 		 * @param string $slug Plugin's slug.
+		 * @return bool True if the plugin is installed, false otherwise.
 		 */
 		public function wbcom_is_plugin_installed( $slug ) {
 			if ( ! function_exists( 'get_plugins' ) ) {
@@ -79,7 +80,7 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 			$all_plugins = get_plugins();
 			$keys        = array_keys( $all_plugins );
 			foreach ( $keys as $key ) {
-				if ( preg_match( '|^' . $slug . '/|', $key ) ) {
+				if ( preg_match( '|^' . preg_quote( $slug, '|' ) . '/|', $key ) ) {
 					return true;
 				}
 			}
@@ -87,11 +88,12 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Function for check plugin's status.
+		 * Check the status of the plugin (installed, activated, or not installed).
 		 *
 		 * @since 2.0.0
 		 * @access public
 		 * @param string $slug Plugin's slug.
+		 * @return string The status of the plugin.
 		 */
 		public function wbcom_plugin_status( $slug ) {
 			if ( $this->wbcom_is_plugin_installed( $slug ) ) {
@@ -106,11 +108,12 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Function for check plugin is activated or not.
+		 * Check if the plugin is activated.
 		 *
 		 * @since 2.0.0
 		 * @access public
 		 * @param string $slug Plugin's slug.
+		 * @return bool True if the plugin is active, false otherwise.
 		 */
 		public function wbcom_is_plugin_active( $slug ) {
 			if ( ! function_exists( 'get_plugins' ) ) {
@@ -118,15 +121,14 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 			}
 			$all_plugins = get_plugins();
 			$keys        = array_keys( $all_plugins );
-			$response    = false;
 			foreach ( $keys as $key ) {
-				if ( preg_match( '|^' . $slug . '/|', $key ) ) {
+				if ( preg_match( '|^' . preg_quote( $slug, '|' ) . '/|', $key ) ) {
 					if ( is_plugin_active( $key ) ) {
-						$response = true;
+						return true;
 					}
 				}
 			}
-			return $response;
+			return false;
 		}
 
 		/**
@@ -140,13 +142,12 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 				wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
 			}
 			if ( ! wp_script_is( 'wbcom_admin_setting_js', 'enqueued' ) ) {
-
 				wp_register_script(
-					$handle    = 'wbcom_admin_setting_js',
-					$src       = BPMMD_PLUGIN_URL . 'admin/wbcom/assets/js/wbcom-admin-setting.js',
-					$deps      = array( 'jquery' ),
-					$ver       = time(),
-					$in_footer = true
+					'wbcom_admin_setting_js',
+					BPMMD_PLUGIN_URL . 'admin/wbcom/assets/js/wbcom-admin-setting.js',
+					array( 'jquery' ),
+					time(),
+					true
 				);
 				wp_localize_script(
 					'wbcom_admin_setting_js',
@@ -159,17 +160,15 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 					)
 				);
 				wp_enqueue_script( 'wbcom_admin_setting_js' );
-
 			}
 
 			if ( ! wp_style_is( 'wbcom-admin-setting-css', 'enqueued' ) ) {
 				wp_enqueue_style( 'wbcom-admin-setting-css', BPMMD_PLUGIN_URL . 'admin/wbcom/assets/css/wbcom-admin-setting.css' );
 			}
-
 		}
 
 		/**
-		 * Function for add plugin's admin panel header pages.
+		 * Function for adding plugin's admin panel header pages.
 		 *
 		 * @since 2.0.0
 		 * @access public
@@ -202,7 +201,7 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Function for include wbcom plugins list page.
+		 * Include Wbcom plugins list page.
 		 *
 		 * @since 2.0.0
 		 * @access public
@@ -212,7 +211,7 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Function for include themes list page.
+		 * Include themes list page.
 		 *
 		 * @since 2.0.0
 		 * @access public
@@ -222,7 +221,7 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Function for include support page.
+		 * Include support page.
 		 *
 		 * @since 2.0.0
 		 * @access public
@@ -232,13 +231,13 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Shortcode for display top menu header.
+		 * Shortcode for displaying top menu header.
 		 *
 		 * @since 2.0.0
 		 * @access public
 		 */
 		public function wbcom_admin_setting_header_html() {
-			$page          = filter_input( INPUT_GET, 'page' ) ? filter_input( INPUT_GET, 'page' ) : 'wbcom-themes-page';
+			$page = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) ?: 'wbcom-themes-page';
 			$plugin_active = $theme_active = $support_active = $settings_active = '';
 			switch ( $page ) {
 				case 'wbcom-plugins-page':
@@ -258,19 +257,19 @@ if ( ! class_exists( 'Wbcom_Admin_Settings' ) ) {
 				<nav id="wb_admin_nav">
 					<ul>
 						<li class="wb_admin_nav_item <?php echo esc_attr( $settings_active ); ?>">
-							<a href="<?php echo esc_url( get_admin_url() ) . 'admin.php?page=wbcomplugins'; ?>" id="wb_admin_nav_trigger_settings">
+							<a href="<?php echo esc_url( admin_url( 'admin.php?page=wbcomplugins' ) ); ?>" id="wb_admin_nav_trigger_settings">
 								<i class="fa fa-sliders"></i>
 								<h4><?php esc_html_e( 'Settings', 'bp-display-xprofile' ); ?></h4>
 							</a>
 						</li>
 						<li class="wb_admin_nav_item <?php echo esc_attr( $plugin_active ); ?>">
-							<a href="<?php echo esc_url( get_admin_url() ) . 'admin.php?page=wbcom-plugins-page'; ?>" id="wb_admin_nav_trigger_extensions">
+							<a href="<?php echo esc_url( admin_url( 'admin.php?page=wbcom-plugins-page' ) ); ?>" id="wb_admin_nav_trigger_extensions">
 								<i class="fa fa-th"></i>
 								<h4><?php esc_html_e( 'Themes & Extension', 'bp-display-xprofile' ); ?></h4>
 							</a>
 						</li>
 						<li class="wb_admin_nav_item <?php echo esc_attr( $support_active ); ?>">
-							<a href="<?php echo esc_url( get_admin_url() ) . 'admin.php?page=wbcom-support-page'; ?>" id="wb_admin_nav_trigger_support">
+							<a href="<?php echo esc_url( admin_url( 'admin.php?page=wbcom-support-page' ) ); ?>" id="wb_admin_nav_trigger_support">
 								<i class="fa fa-question-circle"></i>
 								<h4><?php esc_html_e( 'Support', 'bp-display-xprofile' ); ?></h4>
 							</a>
