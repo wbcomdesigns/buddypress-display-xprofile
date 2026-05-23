@@ -5,7 +5,7 @@
   "license": "GPL-2.0+",
   "description": "It will add option for admin to select which xprofile field will be displayed inside member loop and on profile header",
   "devDependencies": {
-    "grunt": "^1.3.0",
+    "grunt": "^1.6.2",
     "grunt-checktextdomain": "^1.0.1",
     "grunt-wp-i18n": "^1.0.3"
   },
